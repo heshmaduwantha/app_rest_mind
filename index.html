@@ -1,0 +1,3535 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="neuro_spark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="NueroRest 90" />
+  <meta name="theme-color" content="#080d16" id="metaThemeColor" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23080d16'/%3E%3Ccircle cx='90' cy='90' r='54' fill='none' stroke='%2306b6d4' stroke-width='10'/%3E%3Cpath d='M64 94l18 18 36-40' fill='none' stroke='%2310b981' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <title>NueroRest 90 — Neuro-Adaptive Recovery & Sanctuary Engine</title>
+  <style>
+    :root {
+      --bg: #080d16;
+      --bg-elevated: #0f1726;
+      --bg-card: #131d31;
+      --bg-card-soft: #192640;
+      --border: rgba(56, 189, 248, 0.16);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.15);
+      --spark: #f59e0b;
+      --spark-soft: rgba(245, 158, 11, 0.16);
+      --success: #10b981;
+      --success-soft: rgba(16, 185, 129, 0.16);
+      --warning: #f59e0b;
+      --warning-soft: rgba(245, 158, 11, 0.16);
+      --danger: #ef4444;
+      --danger-soft: rgba(239, 68, 68, 0.15);
+      --purple: #a78bfa;
+      --purple-soft: rgba(167, 139, 250, 0.16);
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
+      --radius: 20px;
+      --radius-sm: 13px;
+      --nav-bg: rgba(10, 16, 28, 0.94);
+    }
+
+    [data-theme="neuro_spark"] {
+      --bg: #080d16;
+      --bg-elevated: #0f1726;
+      --bg-card: #131d31;
+      --bg-card-soft: #1a2742;
+      --border: rgba(6, 182, 212, 0.2);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #06b6d4;
+      --accent-soft: rgba(6, 182, 212, 0.16);
+      --spark: #fbbf24;
+      --nav-bg: rgba(8, 13, 22, 0.95);
+    }
+    [data-theme="emerald_calm"] {
+      --bg: #071411;
+      --bg-elevated: #0c201b;
+      --bg-card: #102a24;
+      --bg-card-soft: #163730;
+      --border: rgba(52, 211, 153, 0.2);
+      --text: #ecfdf5;
+      --text-muted: #99c2b5;
+      --accent: #10b981;
+      --accent-soft: rgba(16, 185, 129, 0.16);
+      --spark: #38bdf8;
+      --nav-bg: rgba(7, 20, 17, 0.95);
+    }
+    [data-theme="solar_dawn"] {
+      --bg: #faf7f0;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f2ece0;
+      --border: rgba(180, 110, 20, 0.14);
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --accent: #d97706;
+      --accent-soft: rgba(217, 119, 6, 0.13);
+      --spark: #0284c7;
+      --shadow: 0 8px 24px rgba(68, 50, 25, 0.08);
+      --nav-bg: rgba(255, 253, 249, 0.95);
+    }
+    [data-theme="midnight_flow"] {
+      --bg: #0b0919;
+      --bg-elevated: #131029;
+      --bg-card: #191536;
+      --bg-card-soft: #221c47;
+      --border: rgba(167, 139, 250, 0.22);
+      --text: #f5f3ff;
+      --text-muted: #a5b4fc;
+      --accent: #a78bfa;
+      --accent-soft: rgba(167, 139, 250, 0.17);
+      --spark: #22d3ee;
+      --nav-bg: rgba(11, 9, 25, 0.95);
+    }
+    [data-theme="crisp_glacier"] {
+      --bg: #f1f6fb;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-soft: #e6eff8;
+      --border: rgba(2, 132, 199, 0.13);
+      --text: #0f172a;
+      --text-muted: #475569;
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.13);
+      --spark: #10b981;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+      --nav-bg: rgba(255, 255, 255, 0.95);
+    }
+    [data-theme="nordic_mist"] {
+      --bg: #edf4f4;
+      --bg-elevated: #f8fbfb;
+      --bg-card: #ffffff;
+      --bg-card-soft: #e1eded;
+      --border: rgba(13, 148, 136, 0.14);
+      --text: #0f292e;
+      --text-muted: #4b6b73;
+      --accent: #0d9488;
+      --accent-soft: rgba(13, 148, 136, 0.14);
+      --spark: #f59e0b;
+      --shadow: 0 8px 24px rgba(15, 41, 46, 0.07);
+      --nav-bg: rgba(248, 251, 251, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.35s ease, color 0.35s ease;
+      padding-bottom: calc(92px + env(safe-area-inset-bottom));
+    }
+
+    body.mind-low .secondary-card {
+      display: none !important;
+    }
+
+    body.pre-start {
+      padding-bottom: 28px;
+    }
+    body.pre-start .bottom-nav,
+    body.pre-start #moodBadgeBtn,
+    body.pre-start #openSettingsBtn {
+      display: none !important;
+    }
+
+    .app-shell {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: calc(10px + env(safe-area-inset-top)) 14px 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 2px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--bg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--spark));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 15px;
+      box-shadow: 0 4px 16px var(--accent-soft);
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-soft {
+      background: var(--bg-card-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+
+    .section-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    h2 {
+      font-size: 17.5px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .si-note {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+
+    .start-hero {
+      background: linear-gradient(145deg, #0f1c30, #12282a);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 22px;
+      padding: 20px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      color: #f8fafc;
+    }
+
+    .commit-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 9px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .commit-step.accepted {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: #10b981;
+    }
+
+    .commit-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 2px solid #06b6d4;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: #fff;
+    }
+
+    .commit-step.accepted .commit-box {
+      background: #10b981;
+      border-color: #10b981;
+    }
+
+    .btn-ignite {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(135deg, #06b6d4, #10b981, #f59e0b);
+      background-size: 200% 200%;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.35);
+      transition: transform 0.15s ease, opacity 0.2s ease;
+    }
+
+    .btn-ignite:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-ignite:not(:disabled):active {
+      transform: scale(0.98);
+    }
+
+    .hud-wrap {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin: 6px 0 10px;
+    }
+
+    .ring-box {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+    }
+
+    .ring-box svg {
+      width: 112px;
+      height: 112px;
+      transform: rotate(-90deg);
+    }
+
+    .ring-center {
+      position: absolute;
+      text-align: center;
+    }
+
+    .ring-day {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .ring-sub {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .mind-state-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .mind-pill {
+      padding: 8px 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .mind-pill.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .future-shift-banner {
+      background: linear-gradient(135deg, var(--accent-soft), var(--success-soft));
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 11px 12px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .badge-accent { background: var(--accent-soft); color: var(--accent); }
+    .badge-success { background: var(--success-soft); color: var(--success); }
+    .badge-warning { background: var(--warning-soft); color: var(--warning); }
+    .badge-danger { background: var(--danger-soft); color: var(--danger); }
+    .badge-purple { background: var(--purple-soft); color: var(--purple); }
+
+    .progress-wrap { margin: 10px 0; }
+
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: var(--bg-card-soft);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--success));
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .progress-fill.danger {
+      background: linear-gradient(90deg, #f97316, #ef4444);
+    }
+
+    .sim-toggle-row {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0 12px;
+    }
+
+    .mode-btn {
+      flex: 1;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .mode-btn.active-good {
+      background: var(--success-soft);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .mode-btn.active-bad {
+      background: var(--danger-soft);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .chip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .sim-chip {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 11.5px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    .sim-chip.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .metric-row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .metric-box {
+      background: var(--bg-card-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .metric-lbl {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--bg-card-soft);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: transform 0.14s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .task-item:active { transform: scale(0.985); }
+
+    .task-item.done {
+      border-color: var(--success);
+      background: var(--success-soft);
+    }
+
+    .check-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 7px;
+      border: 2px solid var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 12px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .task-item.done .check-circle {
+      background: var(--success);
+      border-color: var(--success);
+    }
+
+    .gear-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 10px;
+    }
+
+    .gear-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .gear-chip.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .fb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .fb-btn {
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .fb-btn.chosen {
+      border-color: var(--success);
+      background: var(--success-soft);
+      color: var(--success);
+    }
+
+    .gym-hero {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-card-soft));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .rest-timer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 11px 14px;
+      margin-bottom: 12px;
+      position: sticky;
+      top: 58px;
+      z-index: 25;
+      box-shadow: var(--shadow);
+    }
+
+    .rest-clock {
+      font-size: 24px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+    }
+
+    .exercise-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .exercise-card.all-done { border-color: var(--success); }
+
+    .set-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .set-pill {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .set-pill.checked {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 4px;
+      margin-top: 10px;
+    }
+
+    .heat-cell {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      background: var(--bg-card-soft);
+      border: 1px solid var(--border);
+      font-size: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--text-muted);
+    }
+
+    .heat-cell.clean {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .heat-cell.partial {
+      background: var(--warning-soft);
+      border-color: var(--warning);
+      color: var(--warning);
+      font-weight: 700;
+    }
+
+    .heat-cell.current {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--success));
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px var(--accent-soft);
+    }
+
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-outline {
+      padding: 8px 12px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-danger {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .quick-days, .halt-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .q-day, .halt-btn {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .q-day.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .halt-btn { border-radius: 10px; font-size: 11.5px; }
+    .halt-btn.active {
+      background: var(--warning-soft);
+      border-color: var(--warning);
+      color: var(--warning);
+    }
+
+    .breath-orb {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      margin: 14px auto;
+      background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+      border: 3px solid var(--accent);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform 3.8s ease-in-out, border-color 0.5s ease;
+    }
+
+    .breath-orb.inhale { transform: scale(1.22); border-color: var(--success); }
+    .breath-orb.hold { transform: scale(1.22); border-color: var(--warning); }
+    .breath-orb.exhale { transform: scale(0.92); border-color: var(--accent); }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      padding: 6px 4px calc(8px + env(safe-area-inset-bottom));
+      z-index: 40;
+    }
+
+    .nav-inner {
+      max-width: 540px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 5px 1px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 9px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .nav-btn .ico { font-size: 15.5px; line-height: 1; }
+    .nav-btn.active { color: var(--accent); background: var(--accent-soft); }
+    .nav-btn.gym-tab.active { color: var(--success); background: var(--success-soft); }
+    .nav-btn.sos-tab.active { color: var(--danger); background: var(--danger-soft); }
+
+    .tab-view { display: none; animation: fadeIn 0.2s ease; }
+    .tab-view.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 60;
+      padding: 12px;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 520px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      max-height: 88vh;
+      overflow-y: auto;
+    }
+
+    .field-group { margin-bottom: 12px; }
+    .field-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .field-group input, .field-group select, .field-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card-soft);
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: inherit;
+    }
+
+    .toast {
+      position: fixed;
+      top: calc(64px + env(safe-area-inset-top));
+      left: 50%;
+      transform: translateX(-50%) translateY(-16px);
+      background: var(--bg-elevated);
+      border: 1px solid var(--accent);
+      color: var(--text);
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 80;
+    }
+
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body class="pre-start">
+  <div class="toast" id="toast">Saved</div>
+
+  <div class="app-shell">
+    <!-- Top Header -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo" id="brandLogo">NR</div>
+        <div>
+          <div class="brand-title" id="brandTitle">NueroRest 90</div>
+          <div class="brand-sub" id="headerSubtitle">Initiation Gate • Locked</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="pill-btn" id="moodBadgeBtn" title="Switch or Lock UI Mood">
+          <span id="moodIcon">⚡</span>
+          <span id="moodModeTag">Auto</span>
+        </button>
+        <button class="icon-btn" id="openSettingsBtn" aria-label="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <!-- ==================== TAB 0: SPECIAL PRE-START MENTALITY HACK GATE ==================== -->
+    <section class="tab-view active" id="tab-startgate">
+      <div class="start-hero">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span class="badge badge-warning">🔒 PROTOCOL LOCKED UNTIL IGNITION</span>
+          <span style="font-size:11px;font-weight:800;color:#38bdf8;">90-DAY RE-WIRE</span>
+        </div>
+        <h2 style="font-size:21px;line-height:1.25;margin-bottom:8px;">
+          ඔබේ මොළය, ශක්තිය සහ සැබෑ හැඟීම් නැවත අයිති කරගන්නා දවස අදයි.
+        </h2>
+        <p style="font-size:13px;color:#cbd5e1;line-height:1.55;">
+          දැනට අනෙක් සියලුම Tabs අගුළු දමා (Locked) ඇත. ඔබ මේ සැලසුම අවංකවම ආරම්භ කිරීමට පෙර පහත <strong>Mind-Shift Reality</strong> එක කියවා තහවුරු කරන්න:
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+          <div style="background:rgba(239,68,68,0.14);border:1px solid rgba(239,68,68,0.35);border-radius:12px;padding:10px;">
+            <div style="font-size:11px;font-weight:800;color:#fca5a5;">❌ පැරණි චක්‍රය (Trap)</div>
+            <div style="font-size:11.5px;color:#e2e8f0;margin-top:4px;line-height:1.45;">
+              පැය 2ක කෘත්‍රිම rush එකකට පසු දින ගණනක crash එක, zero sex feeling, නින්ද නොයෑම සහ අතේ ඇති මුදල් 0 වීම.
+            </div>
+          </div>
+          <div style="background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.4);border-radius:12px;padding:10px;">
+            <div style="font-size:11px;font-weight:800;color:#6ee7b7;">✅ දවස් 90 Reset (Freedom)</div>
+            <div style="font-size:11.5px;color:#e2e8f0;margin-top:4px;line-height:1.45;">
+              ස්වාභාවික Dopamine & Testosterone, ශක්තිමත් Libido, Gym physique, සන්සුන් AC Room & Gear flow, සහ Rs. 225,000+ ඉතිරිය.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span>3-STEP NEURO-COMMITMENT UNLOCK</span>
+          <span id="commitProgressTag">0 / 3 Locked In</span>
+        </div>
+        <p class="si-note" style="margin-bottom:10px;">
+          පහත කරුණු 3 තට්ටු කර (Tap) ඔබේ මනස සූදානම් කරන්න—ඉන්පසු <strong>Start Button</strong> එක Unlock වේ:
+        </p>
+
+        <div class="commit-step" data-cstep="1">
+          <div class="commit-box">1</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:800;">මම කිසිම දෙයක් අහිමි කරගන්නේ නැත</div>
+            <div class="si-note">මම නවත්වන්නේ මගේ මොළය, නින්ද සහ ලිංගික ශක්තිය හොරකම් කළ බොරු රසායනිකය පමණයි.</div>
+          </div>
+        </div>
+
+        <div class="commit-step" data-cstep="2">
+          <div class="commit-box">2</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:800;">මගේ පරිසරය සහ Gear මගේ ශක්තියයි</div>
+            <div class="si-note">Gym එක, AC Room එක, iPhone 18 Pro, AirPods Pro Spatial Audio, PS4 සහ MacBook හරහා මම සැබෑ Flow-State එකට හුරු වෙනවා.</div>
+          </div>
+        </div>
+
+        <div class="commit-step" data-cstep="3">
+          <div class="commit-box">3</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:800;">එක දවසක් අඩු වුණත් මම ආපසු 0ට යන්නේ නැත</div>
+            <div class="si-note">මේ පද්ධතිය මාව මුලට reset නොකර, මගේ අනාගත ඉලක්කය ස්වයංක්‍රීයව balance කරමින් ඉදිරියටම ගෙන යනවා.</div>
+          </div>
+        </div>
+
+        <button class="btn-ignite" id="igniteProtocolBtn" disabled style="margin-top:10px;">
+          🔒 Complete 3 Steps Above to Unlock Start
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 1: HOME ==================== -->
+    <section class="tab-view" id="tab-home">
+      <div class="mind-state-bar" id="mindStateBar">
+        <button class="mind-pill" data-mstate="low">🌫️ Low / Foggy</button>
+        <button class="mind-pill active" data-mstate="steady">⚖️ Steady Focus</button>
+        <button class="mind-pill" data-mstate="drive">⚡ High Drive</button>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span>DYNAMIC FUTURE & NEURO-MOMENTUM HUD</span>
+          <span class="badge badge-success" id="xpBadge">⚡ 0 Neuro-XP</span>
+        </div>
+
+        <div class="hud-wrap">
+          <div class="ring-box">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--bg-card-soft)" stroke-width="9" />
+              <circle id="outerRingCircle" cx="60" cy="60" r="50" fill="none" stroke="var(--accent)" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="310" style="transition:stroke-dashoffset 0.45s ease;" />
+              <circle cx="60" cy="60" r="37" fill="none" stroke="var(--bg-card-soft)" stroke-width="7" />
+              <circle id="innerRingCircle" cx="60" cy="60" r="37" fill="none" stroke="var(--success)" stroke-width="7"
+                stroke-linecap="round" stroke-dasharray="232.48" stroke-dashoffset="232.48" style="transition:stroke-dashoffset 0.35s ease;" />
+            </svg>
+            <div class="ring-center">
+              <div class="ring-day" id="heroDayText">Day 1</div>
+              <div class="ring-sub" id="heroTargetSub">OF 90</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:3px;" id="heroStageName">Stage 1: Acute Detox</div>
+            <div class="si-note" id="heroScheduleTag" style="color:var(--accent);font-weight:700;margin-top:0;">06:30 AM • Legs</div>
+            <div class="metric-row-2" style="margin-top:8px;">
+              <div class="metric-box" style="padding:7px 6px;">
+                <div class="metric-val" style="font-size:13.5px;color:var(--success);" id="heroSavings">Rs. 0</div>
+                <div class="metric-lbl">LKR Saved</div>
+              </div>
+              <div class="metric-box" style="padding:7px 6px;">
+                <div class="metric-val" style="font-size:13.5px;color:var(--accent);" id="emaStrengthVal">18%</div>
+                <div class="metric-lbl">Neuro-Momentum</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="future-shift-banner" id="liveFutureShiftBanner">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:3px;">
+            <span style="font-size:11px;font-weight:900;color:var(--text);">🔮 LIVE FUTURE TRAJECTORY SHIFT</span>
+            <span class="badge badge-success" id="projectedTargetDateBadge">Target: Day 90</span>
+          </div>
+          <p class="si-note" id="liveFutureShiftText" style="color:var(--text);margin-top:2px;"></p>
+        </div>
+      </div>
+
+      <div class="card" id="bioSupplementCard">
+        <div class="section-label">
+          <span>DAY-SMART BIO-PROTOCOL (PRE-WORKOUT & SLEEP)</span>
+          <span class="badge badge-warning" id="bioPhaseBadge">Days 1–5 Crash Shield</span>
+        </div>
+        <h3 id="bioHeadline">⚡ Day 1–5 Crash Hack & Melatonin Sleep Protocol</h3>
+        <div class="card-soft" style="margin-top:8px;">
+          <div style="font-size:11.5px;font-weight:800;color:var(--accent);" id="preWorkoutTitle">🏋️ Pre-Workout Protocol (Gym Time: 06:30 AM)</div>
+          <p class="si-note" id="preWorkoutAdvice"></p>
+        </div>
+        <div class="card-soft" style="margin-top:8px;">
+          <div style="font-size:11.5px;font-weight:800;color:var(--purple);" id="melatoninTitle">🌙 Night Sleep & Melatonin Window</div>
+          <p class="si-note" id="melatoninAdvice"></p>
+        </div>
+      </div>
+
+      <div class="card secondary-card">
+        <div class="section-label">
+          <span>TOMORROW TARGET PROXIMITY SIMULATOR</span>
+          <span class="badge badge-accent">Prospective Hack</span>
+        </div>
+        <h2>හෙට දවසේ මේ ටික කළොත්...</h2>
+        <p class="si-note" id="simIntroNote">
+          හෙට දවසේ ඔබ සම්පූර්ණ කරන පියවර තෝරන්න — එයින් <strong>Day 90 Final Target</strong> එකට කොච්චර ළං වෙනවාදැයි සජීවීව බලන්න:
+        </p>
+
+        <div class="sim-toggle-row">
+          <button class="mode-btn active-good" id="simCleanModeBtn">✅ හෙට Clean & Protocol</button>
+          <button class="mode-btn" id="simRelapseModeBtn">⚠️ නැවත ගත්තොත් (Relapse)</button>
+        </div>
+
+        <div id="simCleanControls">
+          <div class="chip-grid" id="simChips">
+            <button class="sim-chip selected" data-bonus="0.45"><span>🚫 Zero Meth (24h)</span><span>+Core</span></button>
+            <button class="sim-chip selected" data-bonus="0.35"><span>🏋️ <span id="simTomorrowWorkoutLbl">Tomorrow Gym</span></span><span>+15% D2</span></button>
+            <button class="sim-chip selected" data-bonus="0.25"><span>📵 Zero Porn Reset</span><span>+Libido</span></button>
+            <button class="sim-chip selected" data-bonus="0.25"><span>😴 7.5h Deep Sleep</span><span>+Testo</span></button>
+          </div>
+        </div>
+
+        <div class="card-soft" id="simResultBox">
+          <div class="progress-head">
+            <span id="simHeadline">හෙට අවසානයේ Target Proximity:</span>
+            <span id="simDeltaBadge" style="color:var(--success);">+1.4% ළං වේ</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="simBarFill" style="width:3%;"></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-box">
+              <div class="metric-val" id="simD2Val">18%</div>
+              <div class="metric-lbl">Dopamine D2/D3</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" id="simLibidoVal">14%</div>
+              <div class="metric-lbl">Sex Feeling Reset</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" id="simCashVal">Rs. 2,500</div>
+              <div class="metric-lbl">Projected Saved</div>
+            </div>
+          </div>
+          <p class="si-note" id="simNarrative" style="margin-top:9px;"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: TODAY ==================== -->
+    <section class="tab-view" id="tab-today">
+      <div class="card">
+        <div class="section-label">
+          <span>DAILY COMPULSION & FUTURE-SHIFT ENGINE</span>
+          <span class="badge badge-accent" id="todayTypeBadge">06:30 AM • LEGS</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;">
+          <h2>අද දවසේ ක්‍රියාකාරී සැලසුම</h2>
+          <button class="btn-outline" id="openWorkoutBuilderBtn">📋 Edit Split</button>
+        </div>
+
+        <div class="card-soft" style="margin-bottom:10px;border-color:var(--accent);">
+          <div class="progress-head" style="margin-bottom:4px;">
+            <span id="todayVelocityLabel">Today's Future-Lock Progress: 0%</span>
+            <span id="todayTargetHorizonMini" style="color:var(--success);">Target: Day 90</span>
+          </div>
+          <div class="progress-track" style="height:8px;">
+            <div class="progress-fill" id="todayVelocityBar" style="width:0%;"></div>
+          </div>
+          <div class="si-note" id="todayDynamicFutureNote" style="margin-top:5px;color:var(--text);"></div>
+        </div>
+
+        <div class="card-soft" id="todayMuscleHackBox" style="margin-bottom:10px;border-color:var(--success);">
+          <div style="font-size:11.5px;font-weight:800;color:var(--success);" id="todayMuscleHackTitle">
+            🧬 TODAY'S MUSCLE NEURO-HACK
+          </div>
+          <p class="si-note" id="todayMuscleHackBody" style="color:var(--text);"></p>
+        </div>
+
+        <button class="btn-primary" id="pledgeBtn" style="margin-bottom:12px;">
+          🔒 Lock Today's 24-Hour Clean Pledge (+50 XP)
+        </button>
+
+        <div id="todayChecklist"></div>
+
+        <div class="card-soft" id="todayWorkoutEarnedCard" style="display:none;margin-top:10px;border-color:var(--success);background:var(--success-soft);">
+          <div style="font-size:12px;font-weight:900;color:var(--success);margin-bottom:6px;">
+            🏆 TODAY'S GYM SESSION COMPLETED — BIO-GAINS UNLOCKED
+          </div>
+          <div class="metric-row">
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--success);" id="todayEarnedTesto">+26%</div>
+              <div class="metric-lbl">Testosterone Surge</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--accent);" id="todayEarnedD2">+15%</div>
+              <div class="metric-lbl">D2/D3 & BDNF</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--purple);" id="todayEarnedConf">+89%</div>
+              <div class="metric-lbl">Confidence Index</div>
+            </div>
+          </div>
+          <p class="si-note" id="todayEarnedSummary" style="color:var(--text);margin-top:8px;"></p>
+        </div>
+
+        <button class="btn-primary" id="completeDayBtn" style="margin-top:10px;">
+          ✅ Complete Day & Advance to Next Day
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span id="chainHeaderTitle">90-DAY SYNAPTIC CHAIN</span>
+          <span id="chainCountLabel">0 / 90 Days</span>
+        </div>
+        <p class="si-note">සෑම කොටුවක්ම ඔබේ මොළයේ Dopamine receptors නැවත ගොඩනැගෙන දවසක් නියෝජනය කරයි (මඟහැරුණු දින තිබුණද මුලට reset නොවී ඉදිරියටම යයි).</p>
+        <div class="heatmap-grid" id="heatmapGrid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: GYM (100% STEALTH ATHLETIC MODE) ==================== -->
+    <section class="tab-view" id="tab-gym">
+      <div class="gym-hero">
+        <div class="section-label">
+          <span>ATHLETIC HYPERTROPHY & ENDOCRINE TRACKER</span>
+          <span class="badge badge-success" id="gymTimePill">⏰ 06:30 AM</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+          <div>
+            <h2 id="gymSplitTitle">Split Day 1: Legs & Posterior Chain</h2>
+            <p class="si-note" id="gymSplitSubtitle">Day 1 of 90-Day Transformation Cycle</p>
+          </div>
+          <button class="btn-outline" id="gymEditPlanBtn">⚙️ Plan</button>
+        </div>
+
+        <div class="card-soft" style="margin-top:10px;border-color:var(--accent);">
+          <div style="font-size:11.5px;font-weight:800;color:var(--accent);" id="gymBioFocusTitle">
+            🔥 ENDOCRINE & PERFORMANCE FOCUS
+          </div>
+          <p class="si-note" id="gymBioFocusText" style="color:var(--text);"></p>
+        </div>
+
+        <div class="progress-wrap" style="margin-top:10px;margin-bottom:0;">
+          <div class="progress-head">
+            <span id="gymProgressText">0 / 0 Sets Completed</span>
+            <span id="gymTotalRepsText">0 Reps</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="gymProgressBar" style="width:0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rest-timer-bar">
+        <div>
+          <div style="font-size:10.5px;font-weight:800;color:var(--text-muted);">INTER-SET REST TIMER</div>
+          <div class="rest-clock" id="gymRestClock">01:30</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <button class="btn-outline" id="gymRestStartBtn">▶ Start</button>
+          <button class="btn-outline" id="gymRestAddBtn">+15s</button>
+          <button class="btn-outline" id="gymRestResetBtn">Reset</button>
+        </div>
+      </div>
+
+      <div id="gymExercisesList"></div>
+
+      <div class="card" id="gymFinishCard">
+        <button class="btn-primary" id="finishGymSessionBtn">
+          🏁 Finish Workout & Log Endocrine Gains
+        </button>
+
+        <div id="gymPostSummary" style="display:none;margin-top:14px;">
+          <div class="section-label">
+            <span>SESSION BIO-PERFORMANCE REPORT</span>
+            <span class="badge badge-success">Synced to Daily Tasks ✓</span>
+          </div>
+          <div class="metric-row">
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--success);" id="postTestoVal">+26%</div>
+              <div class="metric-lbl">Free Testosterone</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--accent);" id="postBdnfVal">+15%</div>
+              <div class="metric-lbl">BDNF & D2 Drive</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--purple);" id="postConfVal">+89%</div>
+              <div class="metric-lbl">Confidence & Focus</div>
+            </div>
+          </div>
+          <div class="metric-row-2">
+            <div class="metric-box">
+              <div class="metric-val" id="postVolumeVal">0 Reps</div>
+              <div class="metric-lbl">Total Mechanical Volume</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color:var(--success);" id="postCortisolVal">-31%</div>
+              <div class="metric-lbl">Stress Cortisol Drop</div>
+            </div>
+          </div>
+          <p class="si-note" id="postScientificNote" style="margin-top:10px;color:var(--text);"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: PERSONAL SANCTUARY ==================== -->
+    <section class="tab-view" id="tab-sanctuary">
+      <div class="card">
+        <div class="section-label">
+          <span>PERSONAL DEVICE ECOSYSTEM MASTER DATA</span>
+          <button class="pill-btn" id="togglePersonalizeBtn" style="border-color:var(--success);color:var(--success);">
+            ✨ Personalize: ON
+          </button>
+        </div>
+        <h2>Your AC Room & Apple / PS4 Flow Setup</h2>
+        <p class="si-note">
+          ඔබේ උපකරණ එකතුව (Master Setup) සහ අද දවසේ Task/Mental State අනුව මොළයට සන්සුන් Dopamine සහ කුතුහලය (Curiosity) ලබාදෙන Combination එක ස්වයංක්‍රීයව තෝරා දෙයි:
+        </p>
+
+        <div class="gear-grid" id="gearMasterChips">
+          <button class="gear-chip active" data-gear="iphone18">📱 iPhone 18 Pro</button>
+          <button class="gear-chip active" data-gear="airpods">🎧 AirPods Pro (Spatial + ANC)</button>
+          <button class="gear-chip active" data-gear="ps4">🎮 PS4 Console</button>
+          <button class="gear-chip active" data-gear="acroom">❄️ AC Room (22°C)</button>
+          <button class="gear-chip active" data-gear="macbook">💻 MacBook</button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px;">
+          <span class="badge badge-purple" id="modelTrainStatusBadge">🧠 Auto-Model: Active (0 Check-ins)</span>
+          <div style="display:flex;gap:6px;">
+            <button class="btn-outline" id="swapSanctuaryComboBtn">🎲 Next Combo</button>
+            <button class="btn-outline" id="openAiRefreshModalBtn">🌐 Refresh AI</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span>TODAY'S GEAR-SYNCHRONIZED FLOW PRESCRIPTION</span>
+          <span class="badge badge-accent" id="sanctuaryContextBadge">Matched to Today</span>
+        </div>
+
+        <div class="card-soft" style="margin-bottom:9px;border-color:var(--accent);">
+          <div style="font-size:11px;font-weight:800;color:var(--accent);">
+            🎧 IPHONE 18 PRO + AIRPODS PRO (SPATIAL AUDIO ON) + AC ROOM
+          </div>
+          <div style="font-size:14.5px;font-weight:800;margin:3px 0;" id="sancMusicTitle">
+            Spatial Dolby Atmos: Hans Zimmer & 40Hz Binaural Acoustic
+          </div>
+          <p class="si-note" id="sancMusicBody" style="color:var(--text);"></p>
+        </div>
+
+        <div class="card-soft" style="margin-bottom:9px;border-color:var(--purple);">
+          <div style="font-size:11px;font-weight:800;color:var(--purple);">
+            🎮 PS4 CURIOSITY & MYSTERY FLOW PICK
+          </div>
+          <div style="font-size:14.5px;font-weight:800;margin:3px 0;" id="sancGameTitle">
+            Outer Wilds (PS4) — Cosmic Time-Loop Mystery
+          </div>
+          <p class="si-note" id="sancGameBody" style="color:var(--text);"></p>
+        </div>
+
+        <div class="card-soft" style="margin-bottom:10px;border-color:var(--success);">
+          <div style="font-size:11px;font-weight:800;color:var(--success);">
+            💻 MACBOOK / CINEMA CALM IMMERSION
+          </div>
+          <div style="font-size:14.5px;font-weight:800;margin:3px 0;" id="sancMovieTitle">
+            Chef (2014) — Netflix / Apple TV
+          </div>
+          <p class="si-note" id="sancMovieBody" style="color:var(--text);"></p>
+        </div>
+
+        <div class="card-soft" id="sanctuaryFeedbackBox" style="border-color:var(--warning);">
+          <div style="font-size:11.5px;font-weight:800;color:var(--warning);">
+            💬 END-OF-SESSION CHECK-IN (AUTO-TRAINS YOUR MODEL)
+          </div>
+          <p class="si-note" style="color:var(--text);margin-top:3px;">
+            අද මේ Spatial Music / PS4 Game / AC Room session එකෙන් ඔයාගේ මනසට කොහොමද දැනුණේ?
+          </p>
+          <div class="fb-grid" id="sanctuaryFeedbackBtns">
+            <button class="fb-btn" data-fb="calm">😌 Deeply Calm & Felt Great</button>
+            <button class="fb-btn" data-fb="curious">🔍 Hooked by PS4 Mystery</button>
+            <button class="fb-btn" data-fb="okay">😐 Neutral / Normal Feel</button>
+            <button class="fb-btn" data-fb="bored">🥱 Still Bored — Switch Vibe</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: MIND RX & STAGES ==================== -->
+    <section class="tab-view" id="tab-mindrx">
+      <div class="card">
+        <div class="section-label">
+          <span>PROSPECTIVE NEURO-FORECASTER</span>
+          <span class="badge badge-success">Assuming Prior Days Complete</span>
+        </div>
+        <h2>Day-Wise Recovery & Libido Forecast</h2>
+        <p class="si-note">
+          පෙර දින සියල්ල සම්පූර්ණ කළ බවට පදනම්ව, තෝරාගත් දවසේ ඔබේ මොළයේ තත්ත්වය සහ Auto-Assigned Gym Split එක:
+        </p>
+
+        <div class="quick-days" id="rxQuickDays">
+          <button class="q-day active" data-offset="0">Today</button>
+          <button class="q-day" data-offset="1">Tomorrow</button>
+          <button class="q-day" data-day="7">Day 7</button>
+          <button class="q-day" data-day="14">Day 14</button>
+          <button class="q-day" data-day="30">Day 30</button>
+          <button class="q-day" data-day="60">Day 60</button>
+          <button class="q-day" id="rxFinalDayBtn" data-final="1">Day 90</button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-top:6px;">
+          <span>Forecast Target: <span id="rxSelectedDayLabel" style="color:var(--accent);">Day 1</span></span>
+          <span id="rxTargetPctLabel">1.1% to Target</span>
+        </div>
+        <input type="range" id="rxDaySlider" min="1" max="90" value="1" />
+
+        <div class="metric-row">
+          <div class="metric-box">
+            <div class="metric-val" id="rxD2">16%</div>
+            <div class="metric-lbl">D2/D3 Receptors</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" id="rxPfc">22%</div>
+            <div class="metric-lbl">Prefrontal Control</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" id="rxLibido">12%</div>
+            <div class="metric-lbl">Libido / Testo</div>
+          </div>
+        </div>
+        <p class="si-note" id="rxForecastSummary" style="margin-top:9px;"></p>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span>HALT-B CRAVING ROOT-CAUSE SCANNER</span>
+          <span class="badge badge-warning">30-Sec Reset</span>
+        </div>
+        <h3>දැන් ඔබට දැනෙන හැඟීම තෝරන්න:</h3>
+        <div class="halt-row" id="haltButtons">
+          <button class="halt-btn active" data-halt="bored">❄️ Bored in AC Room</button>
+          <button class="halt-btn" data-halt="tired">😴 Tired / Low Energy</button>
+          <button class="halt-btn" data-halt="stressed">🔥 Angry / Stressed</button>
+          <button class="halt-btn" data-halt="lonely">🌙 Lonely / Empty</button>
+          <button class="halt-btn" data-halt="hungry">🍽️ Hungry / Dehydrated</button>
+        </div>
+        <div class="card-soft" id="haltPrescription"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-label">
+          <span>COUNSELOR PROTOCOL OF THE DAY</span>
+          <span class="badge badge-purple" id="counselorSourceBadge">Matrix Model</span>
+        </div>
+        <h3 id="counselorTitle">Urge Surfing & 20-Minute Wave Rule</h3>
+        <p class="si-note" id="counselorBody"></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px;">
+          <button class="btn-outline" id="nextProtocolBtn">Next Technique →</button>
+          <button class="btn-primary" id="completeProtocolBtn" style="width:auto;padding:9px 14px;font-size:12px;">
+            ✓ Mark Practiced (+30 XP)
+          </button>
+        </div>
+      </div>
+
+      <div class="card secondary-card">
+        <div class="section-label">
+          <span>4-STAGE BIOLOGICAL ROADMAP</span>
+          <span class="badge badge-accent" id="stagePreviewBadge">Day 1 Active</span>
+        </div>
+        <h2>මොළය සහ Sex Feeling සුවපත් වන අදියර 4</h2>
+        <div id="stageCardsContainer"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 6: SOS ==================== -->
+    <section class="tab-view" id="tab-sos">
+      <div class="card">
+        <div class="section-label">
+          <span>EMERGENCY CRAVING SHIELD</span>
+          <span class="badge badge-danger">20-Min Wave</span>
+        </div>
+        <h2>Craving රැල්ල මිනිත්තු 20කින් බැස යයි</h2>
+        <p class="si-note">
+          ස්නායු විද්‍යාවට අනුව එක් craving රැල්ලක් උපරිම මිනිත්තු 15–20ක් පමණයි පවතින්නේ:
+        </p>
+
+        <div class="card-soft" style="text-align:center;margin:12px 0;">
+          <div style="font-size:40px;font-weight:900;font-variant-numeric:tabular-nums;" id="sosTimerDisplay">20:00</div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;">
+            <button class="btn-danger" id="sosStartBtn" style="width:auto;padding:10px 18px;">▶ Start 20-Min Timer</button>
+            <button class="btn-outline" id="sosResetBtn">Reset</button>
+          </div>
+        </div>
+
+        <div class="card-soft" style="text-align:center;margin-bottom:12px;">
+          <div style="font-size:12px;font-weight:800;color:var(--accent);">4-7-8 PARASYMPATHETIC BREATHING</div>
+          <div class="breath-orb" id="breathOrb">Tap Start<br/>4-7-8</div>
+          <button class="btn-outline" id="toggleBreathBtn">Start Breathing Guide</button>
+        </div>
+
+        <h3>දැන් දැනෙන දේ ලේබල් කරන්න (Affect Labeling):</h3>
+        <div class="halt-row" id="sosEmotionChips" style="margin-top:8px;">
+          <button class="halt-btn" data-em="restless">⚡ Restless / Agitated</button>
+          <button class="halt-btn" data-em="flat">😶 Empty / Flatline</button>
+          <button class="halt-btn" data-em="trigger">📱 Saw a Trigger / Cue</button>
+          <button class="halt-btn" data-em="insomnia">🌃 Can't Sleep</button>
+        </div>
+        <div class="card-soft" id="sosEmotionAdvice" style="margin-bottom:12px;">
+          <p class="si-note">ඉහත හැඟීමක් තෝරන්න — UCLA Affect Labeling පර්යේෂණයට අනුව හැඟීම නම් කිරීමෙන් Amygdala ක්‍රියාකාරිත්වය ක්ෂණිකව අඩු වේ.</p>
+        </div>
+
+        <div class="card-soft" style="border-color:var(--danger);">
+          <div style="font-size:12px;font-weight:800;color:var(--danger);margin-bottom:6px;">🇱🇰 CONFIDENTIAL 24/7 SRI LANKA SUPPORT</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <a href="tel:1927" class="btn-outline" style="text-align:center;text-decoration:none;">📞 Call 1927 (NDDCB)</a>
+            <a href="tel:1926" class="btn-outline" style="text-align:center;text-decoration:none;">📞 Call 1926 (NIMH)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 7: VAULT ==================== -->
+    <section class="tab-view" id="tab-vault">
+      <div class="card">
+        <div class="section-label">
+          <span>CONTINGENCY MANAGEMENT VAULT</span>
+          <span class="badge badge-success">Gold-Standard Evidence</span>
+        </div>
+        <h2>මූල්‍ය සහ ඩොපමින් ඉතිරි කිරීමේ සේප්පුව</h2>
+        <div class="metric-row" style="margin:12px 0;">
+          <div class="metric-box">
+            <div class="metric-val" style="color:var(--success);" id="vaultCurrentSaved">Rs. 0</div>
+            <div class="metric-lbl">Current Saved</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" id="vaultDay90Proj">Rs. 225k</div>
+            <div class="metric-lbl" id="vaultTargetLbl">Day 90 Total</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-val" id="vaultYearProj">Rs. 912k</div>
+            <div class="metric-lbl">1-Year Wealth</div>
+          </div>
+        </div>
+        <div id="milestoneRewardsList"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-inner">
+      <button class="nav-btn active" data-tab="home"><span class="ico">🏠</span><span>Home</span></button>
+      <button class="nav-btn" data-tab="today"><span class="ico">✅</span><span>Today</span></button>
+      <button class="nav-btn gym-tab" data-tab="gym"><span class="ico">🏋️</span><span>Gym</span></button>
+      <button class="nav-btn" data-tab="sanctuary"><span class="ico">🎧</span><span>Sanctuary</span></button>
+      <button class="nav-btn" data-tab="mindrx"><span class="ico">🧠</span><span>Mind Rx</span></button>
+      <button class="nav-btn sos-tab" data-tab="sos"><span class="ico">🛡️</span><span>SOS</span></button>
+      <button class="nav-btn" data-tab="vault"><span class="ico">💎</span><span>Vault</span></button>
+    </div>
+  </nav>
+
+  <!-- ==================== MODAL 1: WORKOUT SPLIT UPLOADER & ANALYZER ==================== -->
+  <div class="modal-backdrop" id="workoutModal">
+    <div class="modal-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h2>🏋️ Workout Split Uploader & Analyzer</h2>
+        <button class="icon-btn" id="closeWorkoutModalBtn">✕</button>
+      </div>
+      <p class="si-note" style="margin-bottom:10px;">
+        ඔබේ Gym යන වේලාව, Split දින ගණන (How many days) සහ එක් එක් දවසේ Exercises + Sets × Reps ඇතුළත් කරන්න.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="field-group">
+          <label>Gym Time (යන වේලාව)</label>
+          <input type="time" id="wkGymTime" value="06:30" />
+        </div>
+        <div class="field-group">
+          <label>Split Days (දින ගණන)</label>
+          <select id="wkSplitDaysCount">
+            <option value="2">2-Day Split (Upper / Lower)</option>
+            <option value="3">3-Day Split (Push / Pull / Legs)</option>
+            <option value="4" selected>4-Day Split (Chest / Back / Legs / Shoulders)</option>
+            <option value="5">5-Day Split (Bro Split / Hypertrophy)</option>
+            <option value="6">6-Day Split (PPL x2)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Weekend Rest Rule</label>
+        <select id="wkWeekendRule">
+          <option value="weekend_rest">Weekends Full Rest (Sat & Sun Off)</option>
+          <option value="two_on_one_off">2-Days ON / 1-Day OFF Rolling Cycle</option>
+          <option value="continuous">Follow Split Days Continuously</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>Optional: Upload Workout Text File (.txt / .csv)</label>
+        <input type="file" id="wkFileUpload" accept=".txt,.csv" />
+      </div>
+
+      <div id="wkDayEditorsContainer"></div>
+
+      <button class="btn-primary" id="saveWorkoutPlanBtn" style="margin-top:8px;">
+        🧬 Analyze & Auto-Assign Across Target Cycle
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: OPTIONAL ON-DEMAND AI / WEB KNOWLEDGE REFRESH ==================== -->
+  <div class="modal-backdrop" id="aiRefreshModal">
+    <div class="modal-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h2>🌐 Refresh Insights & Update Model</h2>
+        <button class="icon-btn" id="closeAiRefreshBtn">✕</button>
+      </div>
+      <p class="si-note" style="margin-bottom:10px;">
+        මෙම ඇප් එක සාමාන්‍යයෙන් <strong>100% Offline</strong> වැඩ කරයි. ඔබට කවදාහරි අලුත් Spatial Audio tracks, PS4 mystery games හෝ recovery insights අවශ්‍ය නම් පමණක් පහත අවසරය (Permission) ලබා දී Model එක update කළ හැක:
+      </p>
+
+      <div class="field-group">
+        <label>Knowledge Source Mode</label>
+        <select id="aiSourceMode">
+          <option value="free_web">🌍 Free Open Web Knowledge (No API Key Needed)</option>
+          <option value="custom_ai">🔑 Personal AI API Key (OpenAI / Gemini / OpenRouter)</option>
+        </select>
+      </div>
+
+      <div class="field-group" id="aiKeyFieldWrap" style="display:none;">
+        <label>Your Personal AI API Key (Stored Only on This Device)</label>
+        <input type="password" id="aiPersonalKeyInput" placeholder="sk-... or AIza..." />
+      </div>
+
+      <div class="field-group">
+        <label>What do you want to refresh? (Optional topic)</label>
+        <input type="text" id="aiTopicInput" placeholder="e.g. PS4 mystery games, Spatial audio calm music, dopamine recovery" />
+      </div>
+
+      <button class="btn-primary" id="runAiRefreshBtn">
+        🔓 Grant Access & Fetch Fresh Model Updates
+      </button>
+      <p class="si-note" id="aiRefreshStatus" style="margin-top:8px;color:var(--accent);"></p>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: SETTINGS & BACKUP ==================== -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <h2>⚙️ Settings, Neuro-Colors & Backup</h2>
+        <button class="icon-btn" id="closeSettingsBtn">✕</button>
+      </div>
+
+      <div class="field-group">
+        <label>Current Recovery Day</label>
+        <input type="number" id="setCurrentDay" min="1" max="365" value="1" />
+      </div>
+
+      <div class="field-group">
+        <label>Daily Saved Amount (LKR / Rs.)</label>
+        <input type="number" id="setDailyCost" min="100" step="100" value="2500" />
+      </div>
+
+      <div class="field-group">
+        <label>Neuro-Color Palette Mode</label>
+        <select id="setThemeMode">
+          <option value="auto">🔄 Auto Neuro-Adaptive Rotation (Anti-Boredom)</option>
+          <option value="neuro_spark">⚡ Lock: Neuro Spark (Obsidian + Cyan + Amber)</option>
+          <option value="emerald_calm">🌲 Lock: Emerald Calm (Parasympathetic Mint)</option>
+          <option value="solar_dawn">☀️ Lock: Solar Dawn (Warm Ivory + Gold)</option>
+          <option value="midnight_flow">🌌 Lock: Midnight Flow (Spatial Violet + Cyan)</option>
+          <option value="crisp_glacier">🧊 Lock: Crisp Glacier (Daylight Sapphire)</option>
+          <option value="nordic_mist">🍃 Lock: Nordic Mist (Restorative Teal)</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" id="saveSettingsBtn">Save & Apply Changes</button>
+
+      <div class="card-soft" style="margin-top:14px;">
+        <div style="font-size:11.5px;font-weight:800;color:var(--accent);margin-bottom:6px;">
+          💾 PRIVATE DEVICE BACKUP (EXPORT / RESTORE)
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button class="btn-outline" id="exportBackupBtn">⬇ Export Backup</button>
+          <label class="btn-outline" style="text-align:center;cursor:pointer;">
+            ⬆ Restore File
+            <input type="file" id="importBackupInput" accept=".json" style="display:none;" />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const NEURO_TASK_WEIGHTS = {
+      zero_meth: 0.35,
+      gym_session: 0.25,
+      sleep_target: 0.18,
+      zero_porn: 0.12,
+      nutrition: 0.05,
+      mind_rx_done: 0.05
+    };
+
+    const MAX_DAILY_REBALANCE_BANDWIDTH = 0.25;
+
+    const THEMES = [
+      { id: "neuro_spark", name: "Neuro Spark", icon: "⚡", color: "#080d16" },
+      { id: "emerald_calm", name: "Emerald Calm", icon: "🌲", color: "#071411" },
+      { id: "solar_dawn", name: "Solar Dawn", icon: "☀️", color: "#faf7f0" },
+      { id: "midnight_flow", name: "Midnight Flow", icon: "🌌", color: "#0b0919" },
+      { id: "crisp_glacier", name: "Crisp Glacier", icon: "🧊", color: "#f1f6fb" },
+      { id: "nordic_mist", name: "Nordic Mist", icon: "🍃", color: "#edf4f4" }
+    ];
+
+    const MUSCLE_SCIENCE = {
+      legs: {
+        label: "Legs & Lower Body",
+        testoSurge: "+28%",
+        bdnfSurge: "+18%",
+        confScore: "+92%",
+        cortisolDrop: "-34%",
+        sinhalaHack: "අද <strong>Legs & Lower Body</strong> දවස! ශරීරයේ විශාලතම මාංශ පේශි (Quads, Hamstrings, Glutes) වෙහෙසවන විට <strong>Natural Free Testosterone සහ Growth Hormone (GH)</strong> උපරිමයෙන් නිකුත් වේ. මෙය ලිංගික ආශාව (Libido / Sex Feeling) සහ රුධිර සංසරණය වේගයෙන්ම නැවත ගොඩනඟන ප්‍රබලම ස්වාභාවික Hack එකයි.",
+        gymBio: "Compound lower-body loading recruits maximum motor units, triggering the highest acute surge in Free Testosterone, Growth Hormone, and nitric oxide pelvic/systemic blood flow."
+      },
+      chest: {
+        label: "Chest & Triceps (Push)",
+        testoSurge: "+21%",
+        bdnfSurge: "+15%",
+        confScore: "+89%",
+        cortisolDrop: "-29%",
+        sinhalaHack: "අද <strong>Chest & Push</strong> දවස! Heavy pressing මගින් මොළයේ <strong>Endorphins සහ Anandamide</strong> නිකුත් වී කාංසාව (Anxiety) සහ නොසන්සුන්තාව ක්ෂණිකව දිය කර හරින අතර, ඉහළ ශරීරයේ Blood Pump එක නිසා ස්වාභාවික ආත්ම විශ්වාසය ඉහළ යයි.",
+        gymBio: "Mechanical tension across the pectorals and triceps elevates beta-endorphins and endocannabinoids, reducing sympathetic tension while driving upper-body vascularity."
+      },
+      back: {
+        label: "Back & Biceps (Pull)",
+        testoSurge: "+24%",
+        bdnfSurge: "+17%",
+        confScore: "+91%",
+        cortisolDrop: "-31%",
+        sinhalaHack: "අද <strong>Back & Pull</strong> දවස! Deadlifts සහ Rows මගින් කොඳු ඇට පෙළ ශක්තිමත් වී ශරීර ඉරියව්ව (Posture) කෙළින් වේ. ස්නායු විද්‍යාවට අනුව කෙළින් වූ Posture එක මොළයේ <strong>Serotonin සහ Confidence පරිපථ</strong> සෘජුවම සක්‍රීය කරයි.",
+        gymBio: "Posterior chain pulling stimulates high BDNF release for synaptic neuroplasticity and reinforces upright thoracic posture linked to elevated serotonin stability."
+      },
+      shoulders: {
+        label: "Shoulders & Core",
+        testoSurge: "+20%",
+        bdnfSurge: "+15%",
+        confScore: "+88%",
+        cortisolDrop: "-28%",
+        sinhalaHack: "අද <strong>Shoulders & Core</strong> දවස! V-taper උරහිස් සහ Core ශක්තිය ගොඩනැගෙන විට කැඩපතෙන් පෙනෙන ශාරීරික වෙනස මොළයට <strong>සැබෑ ජයග්‍රාහී Dopamine</strong> ලබා දෙමින් පැරණි පුරුදු අමතක කරවයි.",
+        gymBio: "Deltoid hypertrophy and core stabilization enhance neuromuscular coordination, metabolic rate, and self-efficacy signaling."
+      },
+      full: {
+        label: "Full Body & Conditioning",
+        testoSurge: "+25%",
+        bdnfSurge: "+19%",
+        confScore: "+90%",
+        cortisolDrop: "-33%",
+        sinhalaHack: "අද <strong>Full Body / Conditioning</strong> දවස! UCLA PET Scan පර්යේෂණයට අනුව Resistance + Cardio එකට කළ විට මොළයේ <strong>Striatal Dopamine D2/D3 Receptors 15% කින්</strong> නැවත වර්ධනය වේ.",
+        gymBio: "Combined resistance and aerobic conditioning directly upregulates striatal D2/D3 dopamine receptor density and clears excess catecholamines."
+      },
+      rest: {
+        label: "Active Recovery & Rest Day",
+        testoSurge: "+16% (Repair)",
+        bdnfSurge: "+14%",
+        confScore: "+85%",
+        cortisolDrop: "-30%",
+        sinhalaHack: "අද <strong>Muscle & Neural Repair Rest Day</strong> එකක්! මාංශ පේශි වර්ධනය වන්නේත්, Testosterone හෝමෝනය සහ Dopamine receptors අලුත්වැඩියා වන්නේත් Gym එකේදී නොව විවේක ගන්නා අද වැනි දවස්වල ගැඹුරු නින්දේදීය.",
+        gymBio: "Parasympathetic recovery day: myofibrillar protein synthesis, CNS synaptic consolidation, and endocrine hormone replenishment peak during rest."
+      }
+    };
+
+    const DEFAULT_SPLIT_DAYS = [
+      {
+        name: "Chest & Triceps",
+        muscleKey: "chest",
+        rawText: "Flat Barbell Bench Press - 4 x 10 (90s)\nIncline Dumbbell Press - 3 x 12 (75s)\nCable Chest Fly - 3 x 15 (60s)\nTricep Rope Pushdown - 4 x 12 (60s)\nOverhead Dumbbell Extension - 3 x 12 (60s)"
+      },
+      {
+        name: "Back & Biceps",
+        muscleKey: "back",
+        rawText: "Lat Pulldown / Pull-Ups - 4 x 10 (90s)\nSeated Cable Row - 4 x 12 (75s)\nSingle-Arm Dumbbell Row - 3 x 10 (75s)\nBarbell Bicep Curl - 3 x 12 (60s)\nHammer Curls - 3 x 12 (60s)"
+      },
+      {
+        name: "Legs & Core",
+        muscleKey: "legs",
+        rawText: "Barbell Back Squat - 4 x 10 (120s)\nLeg Press - 4 x 12 (90s)\nRomanian Deadlift - 3 x 10 (90s)\nLeg Extension & Curl - 3 x 15 (60s)\nStanding Calf Raises - 4 x 15 (45s)\nHanging Leg Raises - 3 x 15 (45s)"
+      },
+      {
+        name: "Shoulders & Arms",
+        muscleKey: "shoulders",
+        rawText: "Seated Dumbbell Shoulder Press - 4 x 10 (90s)\nDumbbell Lateral Raises - 4 x 15 (60s)\nRear Delt Reverse Fly - 3 x 15 (60s)\nEZ-Bar Preacher Curl - 3 x 12 (60s)\nBench Dips / Skullcrushers - 3 x 12 (60s)"
+      }
+    ];
+
+    const DEFAULT_SANCTUARY_BUNDLES = [
+      {
+        id: "spatial_cosmic",
+        vibe: "calm_immersion",
+        weight: 1.0,
+        musicTitle: "Spatial Audio: 'Time' (Hans Zimmer) & Max Richter — Sleep / Infra (Dolby Atmos)",
+        musicBody: "iPhone 18 Pro එකේ Apple Music / Spotify Lossless දාලා AirPods Pro එකේ <strong>Spatial Audio (Head Tracked) + Active Noise Cancellation ON</strong> කරන්න. AC Room එක 22°C ට තියලා ඇස් පියාගෙන අහනකොට 3D soundstage එක නිසා මොළයට ස්වාභාවික සන්සුන් Dopamine රැල්ලක් දැනෙනවා.",
+        gameTitle: "Outer Wilds (PS4) — Cosmic Time-Loop Mystery",
+        gameBody: "කිසිම stress එකක් නැති, නමුත් දැඩි <strong>කුතුහලයක් (Curiosity Dopamine)</strong> ඇති කරන අභ්‍යවකාශ අභිරහස් ගවේෂණ ක්‍රීඩාවක්. විනාඩි 22න් 22ට loop වෙන රහස හොයනකොට කම්මැලිකම සම්පූර්ණයෙන්ම අමතක වෙනවා.",
+        movieTitle: "Interstellar / Chef (2014) — MacBook Retina + AirPods Pro",
+        movieBody: "MacBook එකේ Spatial Audio සමඟ බලන්න—ගැඹුරු සංගීතය සහ visual beauty එක මොළයේ prefrontal focus එක සන්සුන් කරනවා."
+      },
+      {
+        id: "detroit_thriller",
+        vibe: "curiosity_hook",
+        weight: 1.0,
+        musicTitle: "Spatial Audio: Ólafur Arnalds — 're:member' & 40Hz Gamma Focus",
+        musicBody: "iPhone 18 Pro + AirPods Pro Spatial Audio දාලා AC Room එකේ lights dim කරලා අහන්න. Piano සහ String harmonies ඔළුව වටේට ඇහෙන විදිහට මොළයේ anxiety ක්ෂණිකව බහිනවා.",
+        gameTitle: "Detroit: Become Human (PS4) — Psychological Mystery Thriller",
+        gameBody: "ඔබ ගන්නා හැම තීරණයකින්ම කතාව වෙනස් වෙන, ඊළඟට මොකද වෙන්නේ කියලා <strong>ලොකු කුතුහලයක්</strong> දෙන interactive mystery game එකක්.",
+        movieTitle: "The Pursuit of Happyness / Ford v Ferrari — MacBook",
+        movieBody: "MacBook එකේ Focus Mode දාලා බලන්න—අධිෂ්ඨානය සහ ජයග්‍රහණය ගැන මොළයට ධනාත්මක drive එකක් ලබා දෙනවා."
+      },
+      {
+        id: "tsushima_zen",
+        vibe: "zen_recovery",
+        weight: 1.0,
+        musicTitle: "Spatial Audio: Nujabes / Chillhop Atmos & Deep Rain Soundscape",
+        musicBody: "Gym එකෙන් පස්සේ හෝ රාත්‍රී නින්දට පෙර iPhone 18 Pro + AirPods Pro Spatial Audio දාලා AC Room එකේ විවේක ගන්න. Heart rate එක සන්සුන් කරනවා.",
+        gameTitle: "Ghost of Tsushima (PS4) — Wind-Guided Exploration & Haiku",
+        gameBody: "සුළඟ පසුපස යමින් සැඟවුණු ස්ථාන සොයා යන, ශාන්ත නමුත් කුතුහලය පිරුණු Open-World අත්දැකීමක්.",
+        movieTitle: "Soul (2020) / The Secret Life of Walter Mitty — MacBook",
+        movieBody: "සාමාන්‍ය ජීවිතයේ සැබෑ සතුට සහ 'Flow State' එක නැවත මොළයට හඳුන්වා දෙන චිත්‍රපටයක්."
+      },
+      {
+        id: "firewatch_mystery",
+        vibe: "narrative_mystery",
+        weight: 1.0,
+        musicTitle: "Spatial Audio: Ludovico Einaudi — 'Underwater' & Ambient Guitar",
+        musicBody: "iPhone 18 Pro + AirPods Pro ANC දාලා අහන්න—සිතුවිලි පැහැදිලි වී ස්වාභාවික හැඟීම් නැවත දැනෙන්න පටන් ගන්නවා.",
+        gameTitle: "Firewatch / Shadow of the Colossus (PS4)",
+        gameBody: "වනාන්තරයක් මැද Walkie-Talkie එකකින් විසඳන අභිරහස් කතාවක්—මනසට කිසිම පීඩනයක් නැතුව කුතුහලය දෙනවා.",
+        movieTitle: "The Martian (2015) — Problem-Solving Survival Flow",
+        movieBody: "MacBook එකේ බලන්න—පියවරෙන් පියවර ප්‍රශ්න විසඳන මානසික ශක්තිය වඩවනවා."
+      }
+    ];
+
+    const COUNSELOR_PROTOCOLS = [
+      {
+        source: "Matrix Model / CBT",
+        title: "Urge Surfing & The 20-Minute Wave",
+        body: "Cravings behave like ocean waves—they peak within 15–20 minutes and subside if you do not feed them. Observe the physical sensation without fighting it, wash your face with cold water, and change rooms."
+      },
+      {
+        source: "DBT TIPP Skill",
+        title: "Mammalian Dive Reflex (Ice-Water Reset)",
+        body: "Splash ice-cold water on your face or hold a cold pack under your eyes for 30 seconds while holding your breath. This triggers the vagus nerve, instantly slowing heart rate and stopping panic cravings."
+      },
+      {
+        source: "Gollwitzer Implementation Intentions",
+        title: "If-Then Automatic Brain Rules",
+        body: "Pre-program your brain: 'IF I feel bored alone in my AC room after 8 PM, THEN I will immediately put on AirPods Pro Spatial Audio or launch my PS4 mystery game for 20 minutes.'"
+      },
+      {
+        source: "ACT (Acceptance & Commitment)",
+        title: "Cognitive Defusion: 'I Am Having the Thought That...'",
+        body: "Instead of believing 'I need a hit,' reframe it to 'My recovering brain is producing a temporary dopamine-seeking thought.' Separating yourself from the thought cuts its emotional power in half."
+      },
+      {
+        source: "Circadian & Melatonin Neuroscience",
+        title: "Days 1–14 Pineal Reset & Stimulant Cutoff",
+        body: "Stimulants disrupt clock genes and pineal melatonin secretion for the first 1–2 weeks. Taking 0.5–3mg Melatonin 45 mins before bed with Magnesium Glycinate restores deep slow-wave sleep without dependency."
+      },
+      {
+        source: "UCLA Exercise Protocol (2016)",
+        title: "Compound Resistance + Aerobic Receptor Boost",
+        body: "Structured strength training plus brisk cardio 3–4 days/week upregulates striatal D2/D3 dopamine receptors by ~15% and boosts natural testosterone for libido recovery."
+      }
+    ];
+
+    const HALT_PRESCRIPTIONS = {
+      bored: "❄️ <strong>AC Room Boredom Alert:</strong> Boredom is the #1 trigger in a cool room because baseline dopamine is low. <strong>30-Sec Fix:</strong> Put on AirPods Pro Spatial Audio or launch today's PS4 Mystery Game in the Sanctuary tab.",
+      tired: "😴 <strong>Fatigue Alert:</strong> Do NOT reach for high-stimulant pre-workouts. Your brain is repairing synaptic receptors. <strong>30-Sec Fix:</strong> Take a 20-minute power nap in your AC room or electrolytes + B-complex.",
+      stressed: "🔥 <strong>Stress / Cortisol Spike:</strong> Cortisol triggers instant craving loops. <strong>30-Sec Fix:</strong> Run cold water over your wrists and face for 30 seconds and complete 4 cycles of 4-7-8 breathing in SOS.",
+      lonely: "🌙 <strong>Isolation Alert:</strong> Addiction thrives in secrecy. <strong>30-Sec Fix:</strong> Text or call a trusted family member/friend just to talk about normal life—or call 1927 confidentially.",
+      hungry: "🍽️ <strong>Blood-Sugar Drop:</strong> Low glucose mimics anxiety and cravings. <strong>30-Sec Fix:</strong> Eat a protein + complex carb snack (eggs, banana, peanuts, or yogurt) and drink 500ml water."
+    };
+
+    const SOS_ADVICE = {
+      restless: "⚡ <strong>Restless / Agitated:</strong> Excess norepinephrine is clearing out. Drop down and do 25 pushups or splash ice water on your face right now to burn off the adrenaline.",
+      flat: "😶 <strong>Empty / Flatline:</strong> This is temporary dopamine receptor downregulation—NOT permanent damage. Put on Spatial Audio calm tracks and let your receptors regrow.",
+      trigger: "📱 <strong>Saw a Trigger / Cue:</strong> Delete/block the source immediately. Walk into another room for 5 minutes so your visual cortex resets.",
+      insomnia: "🌃 <strong>Can't Sleep:</strong> Set AC Room to 22–23°C, take 1–3mg Melatonin + Magnesium (Days 1–14), put on AirPods Pro Spatial Rain/Ambient, and do 4-7-8 breathing."
+    };
+
+    const STAGES_DATA = [
+      {
+        num: 1,
+        range: [1, 7],
+        title: "Stage 1: Acute Crash & Detox Shield (Days 1–7)",
+        libido: "10% – 18% (Rest & Repair Phase)",
+        summary: "Meth clears from bloodstream; deep sleep and appetite return. Fatigue and flat mood are normal signs of neural repair—not failure.",
+        action: "Stim-free L-Citrulline/Electrolytes pre-workout, 0.5–3mg Melatonin at night (Days 1–14), high protein."
+      },
+      {
+        num: 2,
+        range: [8, 30],
+        title: "Stage 2: Dopamine & Libido Rebuilding (Days 8–30)",
+        libido: "25% – 50% (Morning Wood & Natural Drive Return)",
+        summary: "Auto-assigned gym split + 30-day Porn Reset allow striatal D2/D3 receptors and natural testosterone to rebound.",
+        action: "Heavy compound lifts (especially Legs & Back), taper off Melatonin after Day 14, healthy fats & zinc."
+      },
+      {
+        num: 3,
+        range: [31, 60],
+        title: "Stage 3: PAWS Shield & Emotional Stability (Days 31–60)",
+        libido: "55% – 80% (Steady Arousal & Energy)",
+        summary: "Post-Acute Withdrawal waves may occasionally cause random boredom. Using Sanctuary Spatial Audio & PS4 mystery flow prevents relapse.",
+        action: "Contingency rewards at Day 30 & 60, progressive overload in Gym tab, structured evening wind-down."
+      },
+      {
+        num: 4,
+        range: [61, 90],
+        title: "Stage 4: Synaptic Mastery & New Identity (Days 61–90)",
+        libido: "85% – 100% (Full Natural Baseline)",
+        summary: "Prefrontal executive control overrides old cues. Natural rewards—training, music, intimacy—feel genuinely rewarding again.",
+        action: "Maintain lifestyle anchors, review financial savings, set next 90-day fitness milestone."
+      }
+    ];
+
+    const DEFAULT_STATE = {
+      planStarted: false,
+      startCommitSteps: [false, false, false],
+      startedAtIso: null,
+      currentDay: 1,
+      baseTargetDays: 90,
+      extendedDays: 0,
+      unabsorbedWeightDeficit: 0,
+      rebalancedForDay: {},
+      workoutShiftOffset: 0,
+      dayStatusLog: {},
+      dailyCost: 2500,
+      themeMode: "auto",
+      mentalState: "steady",
+      xp: 0,
+      pledgedDay: 0,
+      completedTasks: {},
+      cleanHistory: [],
+      protocolIndex: 0,
+      claimedRewards: [],
+      gymTime: "06:30",
+      splitDaysCount: 4,
+      weekendRule: "weekend_rest",
+      splitDays: JSON.parse(JSON.stringify(DEFAULT_SPLIT_DAYS)),
+      gymProgressByDay: {},
+      personalizeOn: true,
+      activeGear: ["iphone18", "airpods", "ps4", "acroom", "macbook"],
+      sanctuaryBundles: JSON.parse(JSON.stringify(DEFAULT_SANCTUARY_BUNDLES)),
+      sanctuaryManualOffset: 0,
+      sanctuaryCheckIns: 0,
+      lastFeedbackByDay: {},
+      aiSourceMode: "free_web",
+      aiPersonalKey: "",
+      rewards: [
+        { day: 3, title: "Premium Protein / Clean Meal Feast" },
+        { day: 7, title: "New Gym Gear / Spatial Audio Track Pack" },
+        { day: 14, title: "Weekend Spa / Massage & Relax Day" },
+        { day: 30, title: "New PS4 Game / Tech Upgrade" },
+        { day: 60, title: "Short Getaway / Wardrobe Upgrade" },
+        { day: 90, title: "Major Milestone Watch / Investment" }
+      ]
+    };
+
+    let state = loadState();
+    let activeTab = state.planStarted ? "home" : "startgate";
+    let simRelapseMode = false;
+    let selectedRxDay = state.currentDay;
+    let sosSeconds = 20 * 60;
+    let sosInterval = null;
+    let breathInterval = null;
+    let breathRunning = false;
+    let restSeconds = 90;
+    let restInterval = null;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem("nuerorest90_state_v6");
+        if (!raw) return { ...DEFAULT_STATE };
+        const parsed = JSON.parse(raw);
+        return {
+          ...DEFAULT_STATE,
+          ...parsed,
+          splitDays: parsed.splitDays && parsed.splitDays.length ? parsed.splitDays : JSON.parse(JSON.stringify(DEFAULT_SPLIT_DAYS)),
+          sanctuaryBundles: parsed.sanctuaryBundles && parsed.sanctuaryBundles.length
+            ? parsed.sanctuaryBundles
+            : JSON.parse(JSON.stringify(DEFAULT_SANCTUARY_BUNDLES))
+        };
+      } catch (e) {
+        return { ...DEFAULT_STATE };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem("nuerorest90_state_v6", JSON.stringify(state));
+    }
+
+    function getTotalTargetDays() {
+      return (state.baseTargetDays || 90) + (state.extendedDays || 0);
+    }
+
+    function getProjectedCalendarDate(daysRemaining) {
+      const dt = new Date();
+      dt.setDate(dt.getDate() + Math.max(0, daysRemaining));
+      return dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+
+    function computeEmaMomentum() {
+      const d = state.currentDay;
+      let ema = 0.15;
+      const alpha = 0.22;
+      for (let i = 1; i <= d; i++) {
+        const dayMap = state.completedTasks[i] || {};
+        let dayScore = 0;
+        Object.keys(NEURO_TASK_WEIGHTS).forEach(k => {
+          if (dayMap[k]) dayScore += NEURO_TASK_WEIGHTS[k];
+        });
+        if (i < d && dayScore === 0 && state.cleanHistory.includes(i)) {
+          dayScore = 0.7;
+        }
+        ema = ema * (1 - alpha) + dayScore * alpha;
+      }
+      return Math.min(99, Math.max(12, Math.round(ema * 100)));
+    }
+
+    function getTodayWeightCompletion() {
+      const dayMap = state.completedTasks[state.currentDay] || {};
+      let w = 0;
+      Object.keys(NEURO_TASK_WEIGHTS).forEach(k => {
+        if (dayMap[k]) w += NEURO_TASK_WEIGHTS[k];
+      });
+      return Math.min(1, w);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    function formatLKR(num) {
+      return "Rs. " + Math.round(num).toLocaleString("en-US");
+    }
+
+    function formatTime12h(hhmm) {
+      if (!hhmm || !hhmm.includes(":")) return "06:30 AM";
+      let [h, m] = hhmm.split(":").map(Number);
+      const ampm = h >= 12 ? "PM" : "AM";
+      h = h % 12 || 12;
+      return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")} ${ampm}`;
+    }
+
+    function renderStartGate() {
+      if (state.planStarted) {
+        document.body.classList.remove("pre-start");
+        document.getElementById("tab-startgate").style.display = "none";
+        return;
+      }
+      document.body.classList.add("pre-start");
+      document.querySelectorAll(".tab-view").forEach(v => v.classList.remove("active"));
+      document.getElementById("tab-startgate").classList.add("active");
+
+      const steps = state.startCommitSteps || [false, false, false];
+      let count = 0;
+      document.querySelectorAll(".commit-step").forEach((el, idx) => {
+        const ok = !!steps[idx];
+        if (ok) count++;
+        el.classList.toggle("accepted", ok);
+        el.querySelector(".commit-box").textContent = ok ? "✓" : String(idx + 1);
+      });
+
+      document.getElementById("commitProgressTag").textContent = `${count} / 3 Locked In`;
+      const btn = document.getElementById("igniteProtocolBtn");
+      if (count === 3) {
+        btn.disabled = false;
+        btn.textContent = "🔥 ACTIVATE MY 90-DAY NEURO-RESET (UNLOCK ALL TABS)";
+      } else {
+        btn.disabled = true;
+        btn.textContent = `🔒 Complete ${3 - count} More Step${3 - count === 1 ? "" : "s"} Above to Unlock Start`;
+      }
+    }
+
+    document.querySelectorAll(".commit-step").forEach((el, idx) => {
+      el.addEventListener("click", () => {
+        state.startCommitSteps[idx] = !state.startCommitSteps[idx];
+        saveState();
+        renderStartGate();
+      });
+    });
+
+    function playIgnitionChord() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        [440, 554.37, 659.25].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.08);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.7);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + i * 0.08);
+          osc.stop(ctx.currentTime + 0.75);
+        });
+      } catch (e) {}
+    }
+
+    document.getElementById("igniteProtocolBtn").addEventListener("click", () => {
+      if (!state.startCommitSteps.every(Boolean)) return;
+      state.planStarted = true;
+      state.startedAtIso = new Date().toISOString();
+      state.xp += 100;
+      saveState();
+      playIgnitionChord();
+      document.body.classList.remove("pre-start");
+      document.getElementById("tab-startgate").style.display = "none";
+      switchTab("home");
+      renderAll();
+      showToast("🔥 90-Day Neuro-Reset Activated! All Modules Unlocked (+100 XP)");
+    });
+
+    function parseExercises(rawText) {
+      const lines = (rawText || "").split("\n").map(l => l.trim()).filter(Boolean);
+      return lines.map(line => {
+        const match = line.match(/^(.+?)(?:\s*[-–:]\s*|\s+)(\d+)\s*(?:sets?|x|\*)\s*(\d+)(?:\s*reps?)?(?:.*?\((\d+)\s*s\))?/i);
+        if (match) {
+          return {
+            name: match[1].trim(),
+            sets: Math.min(8, Math.max(1, parseInt(match[2], 10))),
+            reps: parseInt(match[3], 10),
+            restSec: match[4] ? parseInt(match[4], 10) : 90
+          };
+        }
+        return { name: line, sets: 3, reps: 12, restSec: 75 };
+      });
+    }
+
+    function detectMuscleKey(name, rawText) {
+      const combo = `${name} ${rawText}`.toLowerCase();
+      if (/leg|squat|quad|hamstring|calf|glute|lunge/.test(combo)) return "legs";
+      if (/chest|bench|pec|push|incline|fly|tricep/.test(combo)) return "chest";
+      if (/back|lat|row|pull|deadlift|bicep|curl/.test(combo)) return "back";
+      if (/shoulder|delt|lateral|military|overhead|core|ab/.test(combo)) return "shoulders";
+      return "full";
+    }
+
+    function getWorkoutForDay(dayNum) {
+      const n = Math.max(1, state.splitDaysCount || state.splitDays.length || 4);
+      const splits = state.splitDays.slice(0, n);
+      const rule = state.weekendRule || "weekend_rest";
+      const shift = state.workoutShiftOffset || 0;
+
+      const todayDow = new Date().getDay();
+      const projectedDow = ((todayDow + (dayNum - state.currentDay)) % 7 + 7) % 7;
+
+      if (rule === "weekend_rest" && (projectedDow === 0 || projectedDow === 6)) {
+        return { isRest: true, splitIndex: -1, name: "Weekend Full Rest & CNS Repair", muscleKey: "rest", exercises: [] };
+      }
+
+      if (rule === "two_on_one_off") {
+        const mod = (dayNum - 1) % 3;
+        if (mod === 2) {
+          return { isRest: true, splitIndex: -1, name: "1-OFF Active Recovery & Sleep Repair", muscleKey: "rest", exercises: [] };
+        }
+        const workoutCountBefore = Math.floor((dayNum - 1) / 3) * 2 + mod;
+        const sIdx = ((workoutCountBefore - shift) % splits.length + splits.length) % splits.length;
+        const sp = splits[sIdx];
+        const mKey = sp.muscleKey || detectMuscleKey(sp.name, sp.rawText);
+        return { isRest: false, splitIndex: sIdx, name: sp.name, muscleKey: mKey, exercises: parseExercises(sp.rawText) };
+      }
+
+      let workoutDayCounter = dayNum - 1;
+      if (rule === "weekend_rest") {
+        workoutDayCounter = 0;
+        for (let k = 1; k < dayNum; k++) {
+          const dowK = ((todayDow + (k - state.currentDay)) % 7 + 7) % 7;
+          if (dowK !== 0 && dowK !== 6) workoutDayCounter++;
+        }
+      }
+      const sIdx = ((workoutDayCounter - shift) % splits.length + splits.length) % splits.length;
+      const sp = splits[sIdx];
+      const mKey = sp.muscleKey || detectMuscleKey(sp.name, sp.rawText);
+      return { isRest: false, splitIndex: sIdx, name: sp.name, muscleKey: mKey, exercises: parseExercises(sp.rawText) };
+    }
+
+    function applyTheme() {
+      let themeObj;
+      if (state.themeMode === "auto") {
+        const idx = state.currentDay <= 5 ? 0 : (state.currentDay - 1) % THEMES.length;
+        themeObj = THEMES[idx];
+        document.getElementById("moodModeTag").textContent = "Auto";
+      } else {
+        themeObj = THEMES.find(t => t.id === state.themeMode) || THEMES[0];
+        document.getElementById("moodModeTag").textContent = "Locked";
+      }
+      document.documentElement.setAttribute("data-theme", themeObj.id);
+      document.getElementById("metaThemeColor").setAttribute("content", themeObj.color);
+      document.getElementById("moodIcon").textContent = themeObj.icon;
+
+      document.body.classList.toggle("mind-low", state.mentalState === "low");
+      document.querySelectorAll("#mindStateBar .mind-pill").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.mstate === state.mentalState);
+      });
+
+      if (!state.planStarted) {
+        document.getElementById("brandLogo").textContent = "NR";
+        document.getElementById("brandTitle").textContent = "NueroRest 90";
+        document.getElementById("headerSubtitle").textContent = "Initiation Gate • Ready to Unlock";
+        return;
+      }
+
+      if (activeTab === "gym") {
+        document.getElementById("brandLogo").textContent = "AP";
+        document.getElementById("brandTitle").textContent = "ApexLift Pro";
+        document.getElementById("headerSubtitle").textContent = `Cycle Day ${state.currentDay} • ${formatTime12h(state.gymTime)}`;
+      } else {
+        document.getElementById("brandLogo").textContent = "NR";
+        document.getElementById("brandTitle").textContent = "NueroRest 90";
+        document.getElementById("headerSubtitle").textContent = `Day ${state.currentDay} of ${getTotalTargetDays()} • ${themeObj.name}`;
+      }
+    }
+
+    function calcNeuroMetrics(day) {
+      const totalTarget = getTotalTargetDays();
+      const d = Math.max(1, Math.min(totalTarget, day));
+      const ratio = d / totalTarget;
+      const targetPct = Math.min(100, ratio * 100);
+      const d2 = Math.min(98, Math.round(15 + ratio * 78));
+      const libido = Math.min(100, Math.round(10 + Math.pow(ratio, 0.85) * 86));
+      const pfc = Math.min(98, Math.round(20 + ratio * 75));
+      return { targetPct, d2, libido, pfc, totalTarget };
+    }
+
+    function renderBioSupplementCard() {
+      const d = state.currentDay;
+      const gTime12 = formatTime12h(state.gymTime);
+      const [gh] = (state.gymTime || "06:30").split(":").map(Number);
+
+      const phaseBadge = document.getElementById("bioPhaseBadge");
+      const headline = document.getElementById("bioHeadline");
+      const pwTitle = document.getElementById("preWorkoutTitle");
+      const pwAdvice = document.getElementById("preWorkoutAdvice");
+      const melTitle = document.getElementById("melatoninTitle");
+      const melAdvice = document.getElementById("melatoninAdvice");
+
+      pwTitle.textContent = `🏋️ Pre-Workout Protocol (Gym Time: ${gTime12})`;
+
+      if (d <= 5) {
+        phaseBadge.textContent = `Day ${d} • Days 1–5 Crash Shield`;
+        phaseBadge.className = "badge badge-warning";
+        headline.textContent = "⚡ Day 1–5 Crash Hack & Melatonin Sleep Protocol";
+        pwAdvice.innerHTML =
+          `<strong>මුල් දවස් 5 තුළ High-Stimulant Pre-Workout එපා!</strong> හෘද ස්පන්දනය ආරක්ෂා කරමින් Day 1–5 තෙහෙට්ටුව (Crash) නැති කරගැනීමට ${gTime12} Gym යාමට විනාඩි 30කට පෙර <strong>Stim-Free L-Citrulline (6g) + Electrolytes (ජීවනී/ලුණු+පොටෑසියම්) + B-Complex</strong> ගන්න. ${gh < 14 ? "අවශ්‍ය නම් පමණක් කුඩා Black Coffee කෝප්ප 1ක් (<100mg caffeine) ගත හැක." : "හවස Gym නිසා Caffeine සම්පූර්ණයෙන් නවත්වන්න (නින්ද ආරක්ෂා කිරීමට)."}`;
+      } else if (d <= 14) {
+        phaseBadge.textContent = `Day ${d} • Receptor Rebuild Phase`;
+        phaseBadge.className = "badge badge-accent";
+        headline.textContent = "🔋 Clean Pre-Workout & Circadian Sleep Anchor";
+        pwAdvice.innerHTML =
+          `${gTime12} ව්‍යායාමයට පෙර <strong>Creatine Monohydrate (5g) + L-Citrulline (6g)</strong> ගන්න. ${gh < 14 ? "උදේ වරුව නිසා DMAA/Synephrine රහිත Clean Pre-Workout (100–150mg Caffeine max) භාවිතා කළ හැක." : "හවස 2න් පසු ව්‍යායාම කරන නිසා Stim-Free Pump Pre-Workout පමණක් ගන්න—නැතිනම් රාත්‍රී නින්ද විනාශ වේ."}`;
+      } else {
+        phaseBadge.textContent = `Day ${d} • Natural Endocrine Drive`;
+        phaseBadge.className = "badge badge-success";
+        headline.textContent = "🧬 Natural Dopamine & Performance Maintenance";
+        pwAdvice.innerHTML =
+          `ඔබේ D2/D3 receptors දැන් ස්වාභාවිකව ශක්තිමත්! ${gTime12} session එකට පෙර <strong>Creatine (5g) + Citrulline + කෙසෙල් ගෙඩියක්</strong> ප්‍රමාණවත්. ${gh >= 14 ? "හවස Gym නිසා Caffeine නොගෙන Stim-Free pump පමණක් භාවිතා කරන්න." : "උදේ 10ට පෙර පාලිත කැෆේන් පමණක් ගන්න."}`;
+      }
+
+      if (d <= 14) {
+        melTitle.textContent = `🌙 Melatonin RECOMMENDED (Days 1–14 Sleep Window • Active Today)`;
+        melAdvice.innerHTML =
+          `<strong>අද Melatonin අවශ්‍යයි:</strong> Meth නැවැත්වූ මුල් දින 14 තුළ මොළයේ ස්වාභාවික Melatonin නිෂ්පාදනය අඩු වන නිසා, නින්දට විනාඩි 45–60කට පෙර <strong>Low-Dose Melatonin (0.5mg – 3mg) + Magnesium Glycinate (200–400mg)</strong> ගන්න. 10mg වැනි අධි මාත්‍රා එපා (උදේ නිදිමත ගතිය ඇතිවේ).`;
+      } else {
+        melTitle.textContent = `🌙 Melatonin Tapered (Day ${d} • Natural Pineal Rhythm)`;
+        melAdvice.innerHTML =
+          `දින 14 පසු වී ඇති නිසා දිනපතා Melatonin අවශ්‍ය නැත—ඔබේ මොළය දැන් ස්වාභාවිකව Melatonin නිපදවයි. <strong>Magnesium Glycinate</strong> පමණක් ගන්න.`;
+      }
+    }
+
+    function renderHome() {
+      const d = state.currentDay;
+      const totalTarget = getTotalTargetDays();
+      const wk = getWorkoutForDay(d);
+      const nextWk = getWorkoutForDay(d + 1);
+      const stage = STAGES_DATA.find(s => d >= s.range[0] && d <= s.range[1]) || STAGES_DATA[3];
+      const todayWeight = getTodayWeightCompletion();
+      const emaScore = computeEmaMomentum();
+
+      const liveOverallPct = Math.min(100, ((d - 1 + todayWeight) / totalTarget) * 100);
+      const outerCircumference = 314.16;
+      const innerCircumference = 232.48;
+      document.getElementById("outerRingCircle").style.strokeDashoffset =
+        String(outerCircumference - (liveOverallPct / 100) * outerCircumference);
+      document.getElementById("innerRingCircle").style.strokeDashoffset =
+        String(innerCircumference - todayWeight * innerCircumference);
+
+      document.getElementById("xpBadge").textContent = `⚡ ${state.xp} Neuro-XP`;
+      document.getElementById("heroDayText").textContent = `Day ${d}`;
+      document.getElementById("heroTargetSub").textContent = `OF ${totalTarget}`;
+      document.getElementById("heroStageName").textContent = stage.title;
+      document.getElementById("heroSavings").textContent = formatLKR((d - 1) * state.dailyCost);
+      document.getElementById("emaStrengthVal").textContent = `${emaScore}%`;
+      document.getElementById("heroScheduleTag").textContent = wk.isRest
+        ? "Full Rest Day"
+        : `${formatTime12h(state.gymTime)} • ${wk.name}`;
+
+      const remainingDays = Math.max(0, totalTarget - d);
+      const projectedDateStr = getProjectedCalendarDate(remainingDays);
+      const todayPctInt = Math.round(todayWeight * 100);
+      document.getElementById("projectedTargetDateBadge").textContent = `Target: Day ${totalTarget} (${projectedDateStr})`;
+
+      const shiftTextEl = document.getElementById("liveFutureShiftText");
+      if (todayPctInt === 100) {
+        shiftTextEl.innerHTML =
+          `🔥 <strong>100% Locked Today!</strong> අද දවසේ සියලු පියවර සම්පූර්ණ නිසා <strong>${projectedDateStr} (Day ${totalTarget})</strong> ඉලක්කය කිසිදු ප්‍රමාදයකින් තොරව තහවුරු වී ඇත.`;
+      } else if (todayPctInt > 0) {
+        shiftTextEl.innerHTML =
+          `අද <strong>${todayPctInt}%</strong> සම්පූර්ණයි — ඉතිරි tasks ටිකත් tick කළොත් ඔබේ Final Target එක <strong>${projectedDateStr} (Day ${totalTarget})</strong> ලෙස ස්ථිරවම lock වේ.`;
+      } else if (state.extendedDays > 0) {
+        shiftTextEl.innerHTML =
+          `පෙර මඟහැරුණු tasks නිසා Target එක <strong>Day ${totalTarget} (${projectedDateStr})</strong> දක්වා auto-adjust වී ඇත. අද tasks සම්පූර්ණ කරමින් ඉදිරියටම යන්න!`;
+      } else {
+        shiftTextEl.innerHTML =
+          `අද දවසේ tasks එකින් එක tick කරන විට ඔබේ <strong>${projectedDateStr} (Day ${totalTarget})</strong> අනාගත ඉලක්කය සජීවීව තහවුරු වේ.`;
+      }
+
+      document.getElementById("simIntroNote").innerHTML =
+        `හෙට දවසේ ඔබ සම්පූර්ණ කරන පියවර තෝරන්න — එයින් <strong>Day ${totalTarget} Final Target</strong> එකට කොච්චර ළං වෙනවාදැයි සජීවීව බලන්න:`;
+      document.getElementById("simTomorrowWorkoutLbl").textContent = nextWk.isRest
+        ? "Tomorrow Active Rest"
+        : `Tomorrow: ${nextWk.name}`;
+
+      renderBioSupplementCard();
+      updateTomorrowSimulator();
+    }
+
+    function updateTomorrowSimulator() {
+      const d = state.currentDay;
+      const totalTarget = getTotalTargetDays();
+      const base = calcNeuroMetrics(d);
+      const next = calcNeuroMetrics(d + 1);
+      const nextWk = getWorkoutForDay(d + 1);
+      const bar = document.getElementById("simBarFill");
+
+      if (simRelapseMode) {
+        bar.classList.add("danger");
+        bar.style.width = "1.1%";
+        document.getElementById("simHeadline").textContent = "⚠️ Relapse සිදු වුවහොත්:";
+        document.getElementById("simDeltaBadge").textContent = `-${(base.targetPct - 1.1).toFixed(1)}% Setback`;
+        document.getElementById("simDeltaBadge").style.color = "var(--danger)";
+        document.getElementById("simD2Val").textContent = "12% ↓";
+        document.getElementById("simLibidoVal").textContent = "8% ↓";
+        document.getElementById("simCashVal").textContent = `-${formatLKR(state.dailyCost)}`;
+        document.getElementById("simNarrative").innerHTML =
+          `<strong>Play the Tape Forward:</strong> පැය 2ක කෘත්‍රිම dopamine spike එකකින් පසු දින 3–5ක crash එක, නින්ද නොයෑම, libido flatline සහ target කාලය තවත් දීර්ඝ වීම සිදුවේ.`;
+      } else {
+        bar.classList.remove("danger");
+        let bonus = 0;
+        document.querySelectorAll("#simChips .sim-chip.selected").forEach(ch => {
+          bonus += parseFloat(ch.dataset.bonus || "0");
+        });
+        const newPct = Math.min(100, next.targetPct + bonus * 0.4);
+        const delta = Math.max(0.8, newPct - base.targetPct);
+        bar.style.width = `${newPct}%`;
+        document.getElementById("simHeadline").textContent = `හෙට (Day ${d + 1}) අවසානයේ Target Proximity:`;
+        document.getElementById("simDeltaBadge").textContent = `+${delta.toFixed(1)}% → ${newPct.toFixed(1)}%`;
+        document.getElementById("simDeltaBadge").style.color = "var(--success)";
+        document.getElementById("simD2Val").textContent = `${next.d2}% ↑`;
+        document.getElementById("simLibidoVal").textContent = `${next.libido}% ↑`;
+        document.getElementById("simCashVal").textContent = formatLKR(d * state.dailyCost);
+        document.getElementById("simNarrative").innerHTML =
+          `හෙට (${formatTime12h(state.gymTime)} — <strong>${nextWk.name}</strong>) ඇතුළු පියවර සම්පූර්ණ කළොත් ඔබ <strong>Day ${totalTarget} Final Target</strong> එකට තවත් <strong>${delta.toFixed(1)}%</strong> කින් ළං වෙනවා.`;
+      }
+    }
+
+    function renderToday() {
+      const d = state.currentDay;
+      const totalTarget = getTotalTargetDays();
+      const wk = getWorkoutForDay(d);
+      const sci = MUSCLE_SCIENCE[wk.muscleKey] || MUSCLE_SCIENCE.full;
+      const gymDayState = state.gymProgressByDay[d] || { setsDone: {}, finished: false };
+      const rebalancedNote = state.rebalancedForDay[d] || null;
+
+      document.getElementById("todayTypeBadge").textContent = wk.isRest
+        ? "REST & REPAIR DAY"
+        : `${formatTime12h(state.gymTime)} • ${wk.name.toUpperCase()}`;
+
+      document.getElementById("todayMuscleHackTitle").textContent = `🧬 MIND HACK: ${sci.label.toUpperCase()}`;
+      document.getElementById("todayMuscleHackBody").innerHTML = sci.sinhalaHack;
+
+      const pledgeBtn = document.getElementById("pledgeBtn");
+      if (state.pledgedDay === d) {
+        pledgeBtn.textContent = "✅ 24-Hour Clean Pledge Locked for Today";
+        pledgeBtn.style.opacity = "0.85";
+      } else {
+        pledgeBtn.textContent = "🔒 Lock Today's 24-Hour Clean Pledge (+50 XP)";
+        pledgeBtn.style.opacity = "1";
+      }
+
+      if (!state.completedTasks[d]) state.completedTasks[d] = {};
+      if (gymDayState.finished) {
+        state.completedTasks[d]["gym_session"] = true;
+      }
+
+      const todayWeight = getTodayWeightCompletion();
+      const todayPct = Math.round(todayWeight * 100);
+      const projDate = getProjectedCalendarDate(Math.max(0, totalTarget - d));
+      document.getElementById("todayVelocityLabel").textContent = `Today's Future-Lock Progress: ${todayPct}%`;
+      document.getElementById("todayTargetHorizonMini").textContent = `Target: Day ${totalTarget} (${projDate})`;
+      document.getElementById("todayVelocityBar").style.width = `${todayPct}%`;
+      document.getElementById("todayDynamicFutureNote").innerHTML = todayPct >= 75
+        ? `✅ අද ඉලක්කය සුරක්ෂිතයි — ඔබේ Final Target එක <strong>Day ${totalTarget}</strong> ලෙසම පවතී.`
+        : `⚡ පහත පියවර සම්පූර්ණ කරන තරමට ඔබේ <strong>Day ${totalTarget}</strong> අනාගත ඉලක්කය දීර්ඝ නොවී ස්ථිර වේ.`;
+
+      const totalSets = wk.exercises.reduce((acc, ex) => acc + ex.sets, 0);
+      const doneSets = Object.values(gymDayState.setsDone || {}).filter(Boolean).length;
+
+      const tasks = [
+        {
+          id: "zero_meth",
+          title: "Zero Methamphetamine & Zero High-Stimulant Pre-Workouts",
+          sub: "Protects heart rate & prevents chemical crash loops"
+        },
+        wk.isRest
+          ? {
+              id: "gym_session",
+              title: "Active Recovery: 20-Min Morning Sunlight Walk + Hydration",
+              sub: "Sets circadian melatonin & accelerates muscle/receptor repair"
+            }
+          : {
+              id: "gym_session",
+              title: `Gym (${formatTime12h(state.gymTime)}): ${wk.name} (${doneSets}/${totalSets} Sets)${rebalancedNote === "workout_reassigned" ? " • Priority Re-Assigned" : ""}`,
+              sub: "Tap 'Open Stealth Gym Tracker →' to log sets & rest timers; auto-syncs when finished",
+              hasGymLink: true
+            },
+        {
+          id: "zero_porn",
+          title: "Dopamine & Libido Reset: Zero Porn / Forced Testing",
+          sub: "Re-wires natural sexual arousal pathway without artificial spikes"
+        },
+        {
+          id: "nutrition",
+          title: d <= 5
+            ? "Day 1–5 Fuel: Stim-Free Citrulline + Electrolytes + High Protein"
+            : "Recovery Fuel: Creatine + High Protein + Zinc/B-Complex",
+          sub: "Supplies L-Tyrosine & amino acids for dopamine & testosterone synthesis"
+        },
+        {
+          id: "mind_rx_done",
+          title: "AC Room Sanctuary Wind-Down (AirPods Pro Spatial Audio / PS4 Flow)",
+          sub: "Replaces evening boredom triggers with calm gear-assisted immersion",
+          hasSanctuaryLink: true
+        },
+        {
+          id: "sleep_target",
+          title: d <= 14
+            ? "Night Sleep: 0.5–3mg Melatonin + Magnesium (45m Before Bed)"
+            : "7.5+ Hours Deep Sleep Target (Magnesium + Screens Off)",
+          sub: "Peak natural testosterone & D2/D3 receptor repair happens in deep sleep"
+        }
+      ];
+
+      const dayMap = state.completedTasks[d] || {};
+      const listEl = document.getElementById("todayChecklist");
+      listEl.innerHTML = tasks.map(t => {
+        const done = !!dayMap[t.id];
+        return `
+          <div class="task-item ${done ? "done" : ""}" data-task="${t.id}">
+            <div class="check-circle">${done ? "✓" : ""}</div>
+            <div style="flex:1;">
+              <div style="font-size:13.5px;font-weight:700;">${t.title}</div>
+              <div class="si-note" style="margin-top:2px;">${t.sub}</div>
+              ${t.hasGymLink ? `<button class="pill-btn" style="margin-top:6px;border-color:var(--success);color:var(--success);" onclick="event.stopPropagation();switchTab('gym')">🏋️ Open Stealth Gym Tracker →</button>` : ""}
+              ${t.hasSanctuaryLink ? `<button class="pill-btn" style="margin-top:6px;border-color:var(--accent);color:var(--accent);" onclick="event.stopPropagation();switchTab('sanctuary')">🎧 Open Sanctuary Flow →</button>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      listEl.querySelectorAll(".task-item").forEach(item => {
+        item.addEventListener("click", () => {
+          const tid = item.dataset.task;
+          if (!state.completedTasks[d]) state.completedTasks[d] = {};
+          const wasDone = !!state.completedTasks[d][tid];
+          state.completedTasks[d][tid] = !wasDone;
+          state.xp += wasDone ? -20 : 20;
+          if (state.xp < 0) state.xp = 0;
+          saveState();
+          renderToday();
+          renderHome();
+          renderSanctuary();
+        });
+      });
+
+      const earnedCard = document.getElementById("todayWorkoutEarnedCard");
+      if (!wk.isRest && (gymDayState.finished || dayMap["gym_session"])) {
+        const totalReps = wk.exercises.reduce((sum, ex, exIdx) => {
+          let r = 0;
+          for (let s = 0; s < ex.sets; s++) {
+            if (gymDayState.setsDone[`${exIdx}-${s}`] || gymDayState.finished) r += ex.reps;
+          }
+          return sum + r;
+        }, 0);
+        earnedCard.style.display = "block";
+        document.getElementById("todayEarnedTesto").textContent = sci.testoSurge;
+        document.getElementById("todayEarnedD2").textContent = sci.bdnfSurge;
+        document.getElementById("todayEarnedConf").textContent = sci.confScore;
+        document.getElementById("todayEarnedSummary").innerHTML =
+          `අද <strong>${wk.name}</strong> (${totalReps} Reps) සම්පූර්ණ කිරීමෙන් ඔබේ ශරීරය තුළ <strong>${sci.testoSurge} Free Testosterone</strong> සහ <strong>${sci.bdnfSurge} BDNF / Dopamine Receptor</strong> වර්ධනයක් සක්‍රීය වී ඇත!`;
+      } else {
+        earnedCard.style.display = "none";
+      }
+
+      document.getElementById("chainHeaderTitle").textContent = `${totalTarget}-DAY SYNAPTIC CHAIN`;
+      const grid = document.getElementById("heatmapGrid");
+      let html = "";
+      for (let i = 1; i <= totalTarget; i++) {
+        const status = state.dayStatusLog[i];
+        const isFullClean = status === "full" || (state.cleanHistory.includes(i) && status !== "partial");
+        const isPartial = status === "partial";
+        const isCurr = i === d;
+        html += `<div class="heat-cell ${isFullClean ? "clean" : isPartial ? "partial" : ""} ${isCurr ? "current" : ""}">${i}</div>`;
+      }
+      grid.innerHTML = html;
+      const cleanCount = Math.max(state.cleanHistory.length, d - 1);
+      document.getElementById("chainCountLabel").textContent = `${cleanCount} / ${totalTarget} Days`;
+    }
+
+    function processDayTransitionWithSilentWeights() {
+      const d = state.currentDay;
+      const dayMap = state.completedTasks[d] || {};
+      const wk = getWorkoutForDay(d);
+
+      let completedWeight = 0;
+      let missedWeight = 0;
+      const missedIds = [];
+
+      Object.keys(NEURO_TASK_WEIGHTS).forEach(taskId => {
+        const w = NEURO_TASK_WEIGHTS[taskId];
+        if (dayMap[taskId]) {
+          completedWeight += w;
+        } else {
+          missedWeight += w;
+          missedIds.push(taskId);
+        }
+      });
+
+      if (!state.cleanHistory.includes(d)) {
+        state.cleanHistory.push(d);
+      }
+      state.dayStatusLog[d] = missedWeight === 0 ? "full" : "partial";
+
+      if (!wk.isRest && missedIds.includes("gym_session")) {
+        state.workoutShiftOffset = (state.workoutShiftOffset || 0) + 1;
+        state.rebalancedForDay[d + 1] = "workout_reassigned";
+      }
+
+      const prevUnabsorbed = state.unabsorbedWeightDeficit || 0;
+      const totalDeficit = prevUnabsorbed + missedWeight;
+
+      let addedExtensionDays = 0;
+      if (totalDeficit === 0) {
+        state.unabsorbedWeightDeficit = 0;
+      } else if (totalDeficit <= MAX_DAILY_REBALANCE_BANDWIDTH) {
+        state.unabsorbedWeightDeficit = totalDeficit * 0.35;
+        if (!state.rebalancedForDay[d + 1]) {
+          state.rebalancedForDay[d + 1] = "silent_rebalance";
+        }
+      } else {
+        const overflowWeight = totalDeficit - MAX_DAILY_REBALANCE_BANDWIDTH;
+        addedExtensionDays = Math.max(1, Math.ceil(overflowWeight));
+        state.extendedDays = (state.extendedDays || 0) + addedExtensionDays;
+        state.unabsorbedWeightDeficit = Math.max(0, overflowWeight - addedExtensionDays);
+        if (!state.rebalancedForDay[d + 1]) {
+          state.rebalancedForDay[d + 1] = "extended_rebalance";
+        }
+      }
+
+      state.currentDay = d + 1;
+      selectedRxDay = state.currentDay;
+      state.xp += Math.round(50 + completedWeight * 60);
+
+      saveState();
+      renderAll();
+
+      if (addedExtensionDays > 0) {
+        showToast(`📅 Target auto-adjusted to Day ${getTotalTargetDays()} (+${addedExtensionDays}d) & tasks updated!`);
+      } else {
+        showToast(`🚀 Advanced to Day ${state.currentDay} • Tasks auto-synced!`);
+      }
+    }
+
+    function selectBestSanctuaryBundle() {
+      const bundles = state.sanctuaryBundles;
+      if (!state.personalizeOn) {
+        const idx = (state.currentDay - 1 + state.sanctuaryManualOffset) % bundles.length;
+        return bundles[idx];
+      }
+      const d = state.currentDay;
+      const dayMap = state.completedTasks[d] || {};
+      const gymDone = !!dayMap["gym_session"];
+
+      const scored = bundles.map((b, idx) => {
+        let score = b.weight || 1.0;
+        if (state.mentalState === "low" && (b.vibe === "calm_immersion" || b.vibe === "zen_recovery")) score += 0.45;
+        if (state.mentalState === "drive" && (b.vibe === "curiosity_hook" || b.vibe === "narrative_mystery")) score += 0.45;
+        if (gymDone && b.vibe === "zen_recovery") score += 0.35;
+        score += ((idx + d + state.sanctuaryManualOffset) % bundles.length) * 0.12;
+        return { bundle: b, score };
+      });
+
+      scored.sort((a, b) => b.score - a.score);
+      return scored[0].bundle;
+    }
+
+    function renderSanctuary() {
+      const pBtn = document.getElementById("togglePersonalizeBtn");
+      pBtn.textContent = state.personalizeOn ? "✨ Personalize: ON" : "✨ Personalize: OFF";
+      pBtn.style.borderColor = state.personalizeOn ? "var(--success)" : "var(--border)";
+      pBtn.style.color = state.personalizeOn ? "var(--success)" : "var(--text-muted)";
+
+      document.querySelectorAll("#gearMasterChips .gear-chip").forEach(ch => {
+        ch.classList.toggle("active", (state.activeGear || []).includes(ch.dataset.gear));
+      });
+
+      document.getElementById("modelTrainStatusBadge").textContent =
+        `🧠 Auto-Model: ${state.personalizeOn ? "Trained" : "Paused"} (${state.sanctuaryCheckIns || 0} Check-ins)`;
+
+      const bundle = selectBestSanctuaryBundle();
+      const d = state.currentDay;
+      const dayMap = state.completedTasks[d] || {};
+      document.getElementById("sanctuaryContextBadge").textContent = dayMap["gym_session"]
+        ? "Post-Gym Recovery Match"
+        : state.mentalState === "low"
+        ? "Low-Load Calm Match"
+        : "Curiosity & Flow Match";
+
+      document.getElementById("sancMusicTitle").textContent = bundle.musicTitle;
+      document.getElementById("sancMusicBody").innerHTML = bundle.musicBody;
+      document.getElementById("sancGameTitle").textContent = bundle.gameTitle;
+      document.getElementById("sancGameBody").innerHTML = bundle.gameBody;
+      document.getElementById("sancMovieTitle").textContent = bundle.movieTitle;
+      document.getElementById("sancMovieBody").innerHTML = bundle.movieBody;
+
+      const chosenFb = state.lastFeedbackByDay[d] || null;
+      document.querySelectorAll("#sanctuaryFeedbackBtns .fb-btn").forEach(btn => {
+        btn.classList.toggle("chosen", btn.dataset.fb === chosenFb);
+      });
+    }
+
+    document.getElementById("togglePersonalizeBtn").addEventListener("click", () => {
+      state.personalizeOn = !state.personalizeOn;
+      saveState();
+      renderSanctuary();
+      showToast(state.personalizeOn ? "✨ Auto-Personalize Model ON" : "Personalize Model Paused");
+    });
+
+    document.querySelectorAll("#gearMasterChips .gear-chip").forEach(ch => {
+      ch.addEventListener("click", () => {
+        const g = ch.dataset.gear;
+        const idx = state.activeGear.indexOf(g);
+        if (idx >= 0) state.activeGear.splice(idx, 1);
+        else state.activeGear.push(g);
+        saveState();
+        renderSanctuary();
+      });
+    });
+
+    document.getElementById("swapSanctuaryComboBtn").addEventListener("click", () => {
+      state.sanctuaryManualOffset = (state.sanctuaryManualOffset + 1) % state.sanctuaryBundles.length;
+      saveState();
+      renderSanctuary();
+    });
+
+    document.querySelectorAll("#sanctuaryFeedbackBtns .fb-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const fb = btn.dataset.fb;
+        const d = state.currentDay;
+        const currentBundle = selectBestSanctuaryBundle();
+
+        const target = state.sanctuaryBundles.find(b => b.id === currentBundle.id);
+        if (target) {
+          if (fb === "calm" || fb === "curious") {
+            target.weight = Math.min(3.0, (target.weight || 1.0) + 0.35);
+          } else if (fb === "bored") {
+            target.weight = Math.max(0.3, (target.weight || 1.0) - 0.35);
+            state.sanctuaryManualOffset = (state.sanctuaryManualOffset + 1) % state.sanctuaryBundles.length;
+          }
+        }
+
+        state.lastFeedbackByDay[d] = fb;
+        state.sanctuaryCheckIns = (state.sanctuaryCheckIns || 0) + 1;
+
+        if (!state.completedTasks[d]) state.completedTasks[d] = {};
+        state.completedTasks[d]["mind_rx_done"] = true;
+        state.xp += 25;
+
+        saveState();
+        renderSanctuary();
+        renderToday();
+        renderHome();
+        showToast(fb === "bored"
+          ? "🎲 Model updated & switched to a stronger curiosity combo!"
+          : "🧠 Preference learned! Sanctuary model & Today task synced (+25 XP)");
+      });
+    });
+
+    document.getElementById("openAiRefreshModalBtn").addEventListener("click", () => {
+      document.getElementById("aiSourceMode").value = state.aiSourceMode || "free_web";
+      document.getElementById("aiPersonalKeyInput").value = state.aiPersonalKey || "";
+      document.getElementById("aiKeyFieldWrap").style.display =
+        state.aiSourceMode === "custom_ai" ? "block" : "none";
+      document.getElementById("aiRefreshStatus").textContent = "";
+      document.getElementById("aiRefreshModal").classList.add("open");
+    });
+
+    document.getElementById("closeAiRefreshBtn").addEventListener("click", () => {
+      document.getElementById("aiRefreshModal").classList.remove("open");
+    });
+
+    document.getElementById("aiSourceMode").addEventListener("change", e => {
+      document.getElementById("aiKeyFieldWrap").style.display =
+        e.target.value === "custom_ai" ? "block" : "none";
+    });
+
+    document.getElementById("runAiRefreshBtn").addEventListener("click", async () => {
+      const mode = document.getElementById("aiSourceMode").value;
+      const key = document.getElementById("aiPersonalKeyInput").value.trim();
+      const topic = document.getElementById("aiTopicInput").value.trim() || "Outer Wilds mystery video game";
+      const statusEl = document.getElementById("aiRefreshStatus");
+
+      state.aiSourceMode = mode;
+      state.aiPersonalKey = key;
+      saveState();
+
+      statusEl.textContent = "⏳ Requesting permission & fetching fresh insights...";
+
+      try {
+        if (mode === "custom_ai" && key.startsWith("sk-")) {
+          const resp = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${key}`
+            },
+            body: JSON.stringify({
+              model: "gpt-4o-mini",
+              messages: [{
+                role: "user",
+                content: `Give 1 calm Spatial Audio music track for AirPods Pro + iPhone 18 Pro, 1 curiosity/mystery PS4 game, and 1 uplifting movie for someone recovering dopamine in an AC room. Topic hint: ${topic}. Return JSON with keys: musicTitle, musicBody, gameTitle, gameBody, movieTitle, movieBody.`
+              }],
+              response_format: { type: "json_object" }
+            })
+          });
+          const data = await resp.json();
+          const parsed = JSON.parse(data.choices[0].message.content);
+          state.sanctuaryBundles.unshift({
+            id: "ai_fresh_" + Date.now(),
+            vibe: "curiosity_hook",
+            weight: 1.8,
+            musicTitle: parsed.musicTitle,
+            musicBody: parsed.musicBody,
+            gameTitle: parsed.gameTitle,
+            gameBody: parsed.gameBody,
+            movieTitle: parsed.movieTitle,
+            movieBody: parsed.movieBody
+          });
+          saveState();
+          renderSanctuary();
+          statusEl.textContent = "✅ Fresh AI bundle added & prioritized in your Sanctuary model!";
+          return;
+        }
+
+        const querySlug = encodeURIComponent(topic.replace(/\s+/g, "_"));
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${querySlug}`);
+        if (res.ok) {
+          const wiki = await res.json();
+          if (wiki.extract) {
+            state.sanctuaryBundles.unshift({
+              id: "web_fresh_" + Date.now(),
+              vibe: "curiosity_hook",
+              weight: 1.6,
+              musicTitle: "Spatial Audio: Max Richter & 40Hz Binaural Focus (AirPods Pro ANC)",
+              musicBody: "iPhone 18 Pro + AirPods Pro Spatial Audio දාලා AC Room එකේ සන්සුන්ව අහන්න.",
+              gameTitle: `${wiki.title} — Exploration & Discovery`,
+              gameBody: wiki.extract.slice(0, 220) + "...",
+              movieTitle: "The Secret Life of Walter Mitty — MacBook",
+              movieBody: "Curiosity and real-world adventure immersion."
+            });
+            saveState();
+            renderSanctuary();
+            statusEl.textContent = `✅ Updated model with fresh web knowledge on "${wiki.title}"!`;
+            return;
+          }
+        }
+        statusEl.textContent = "⚠️ Offline or topic not found — using built-in curated model.";
+      } catch (err) {
+        statusEl.textContent = "⚠️ Network unavailable right now — local offline model remains active.";
+      }
+    });
+
+    function renderGymTab() {
+      const d = state.currentDay;
+      const totalTarget = getTotalTargetDays();
+      const wk = getWorkoutForDay(d);
+      const sci = MUSCLE_SCIENCE[wk.muscleKey] || MUSCLE_SCIENCE.full;
+      if (!state.gymProgressByDay[d]) {
+        state.gymProgressByDay[d] = { setsDone: {}, finished: false };
+      }
+      const prog = state.gymProgressByDay[d];
+
+      document.getElementById("gymTimePill").textContent = `⏰ ${formatTime12h(state.gymTime)}`;
+      document.getElementById("gymSplitTitle").textContent = wk.isRest
+        ? "Active Recovery & Mobility Day"
+        : `Split Day ${wk.splitIndex + 1}: ${wk.name}`;
+      document.getElementById("gymSplitSubtitle").textContent = `Day ${d} of ${totalTarget}-Day Hypertrophy & Endocrine Cycle`;
+      document.getElementById("gymBioFocusTitle").textContent = `🔥 ${sci.label.toUpperCase()} — ENDOCRINE ADVANTAGE`;
+      document.getElementById("gymBioFocusText").textContent = sci.gymBio;
+
+      const listEl = document.getElementById("gymExercisesList");
+      if (wk.isRest || wk.exercises.length === 0) {
+        document.getElementById("gymProgressText").textContent = "Recovery Day";
+        document.getElementById("gymTotalRepsText").textContent = "Mobility & Sleep";
+        document.getElementById("gymProgressBar").style.width = "100%";
+        listEl.innerHTML = `
+          <div class="card">
+            <h3>Active Recovery Protocol</h3>
+            <p class="si-note">1. 20-Minute brisk outdoor walk for sunlight circadian alignment & blood flow.</p>
+            <p class="si-note">2. 10-Minute thoracic & hip-flexor mobility stretching.</p>
+            <p class="si-note">3. High-protein nutrition + 7.5–8h deep sleep for peak hormone synthesis.</p>
+          </div>
+        `;
+        document.getElementById("gymPostSummary").style.display = "none";
+        return;
+      }
+
+      let totalSets = 0;
+      let doneSets = 0;
+      let doneReps = 0;
+
+      listEl.innerHTML = wk.exercises.map((ex, exIdx) => {
+        let exDoneCount = 0;
+        let pillsHtml = "";
+        for (let s = 0; s < ex.sets; s++) {
+          totalSets++;
+          const key = `${exIdx}-${s}`;
+          const checked = !!prog.setsDone[key];
+          if (checked) {
+            doneSets++;
+            exDoneCount++;
+            doneReps += ex.reps;
+          }
+          pillsHtml += `
+            <button class="set-pill ${checked ? "checked" : ""}" data-ex="${exIdx}" data-set="${s}" data-rest="${ex.restSec}">
+              ${checked ? "✓" : "○"} Set ${s + 1} (${ex.reps})
+            </button>
+          `;
+        }
+        const allExDone = exDoneCount === ex.sets;
+        return `
+          <div class="exercise-card ${allExDone ? "all-done" : ""}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <div>
+                <div style="font-size:14.5px;font-weight:800;">${exIdx + 1}. ${ex.name}</div>
+                <div style="font-size:11.5px;color:var(--text-muted);font-weight:600;">
+                  ${ex.sets} Sets × ${ex.reps} Reps • Rest ${ex.restSec}s
+                </div>
+              </div>
+              <span class="badge ${allExDone ? "badge-success" : "badge-accent"}">${exDoneCount}/${ex.sets}</span>
+            </div>
+            <div class="set-pills">${pillsHtml}</div>
+          </div>
+        `;
+      }).join("");
+
+      const pct = totalSets > 0 ? Math.round((doneSets / totalSets) * 100) : 0;
+      document.getElementById("gymProgressText").textContent = `${doneSets} / ${totalSets} Sets (${pct}%)`;
+      document.getElementById("gymTotalRepsText").textContent = `${doneReps} Reps Completed`;
+      document.getElementById("gymProgressBar").style.width = `${pct}%`;
+
+      listEl.querySelectorAll(".set-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const exIdx = btn.dataset.ex;
+          const setIdx = btn.dataset.set;
+          const restSec = parseInt(btn.dataset.rest, 10) || 90;
+          const key = `${exIdx}-${setIdx}`;
+          const wasChecked = !!prog.setsDone[key];
+          prog.setsDone[key] = !wasChecked;
+
+          if (!wasChecked) {
+            state.xp += 5;
+            startRestTimer(restSec);
+          }
+
+          const nowDone = Object.values(prog.setsDone).filter(Boolean).length;
+          if (nowDone >= totalSets && totalSets > 0) {
+            completeGymWorkoutAutomatically();
+          } else {
+            saveState();
+            renderGymTab();
+            renderToday();
+          }
+        });
+      });
+
+      if (prog.finished) {
+        showPostWorkoutBioCard(wk, sci, doneReps || wk.exercises.reduce((a, b) => a + b.sets * b.reps, 0));
+      } else {
+        document.getElementById("gymPostSummary").style.display = "none";
+      }
+    }
+
+    function completeGymWorkoutAutomatically() {
+      const d = state.currentDay;
+      const wk = getWorkoutForDay(d);
+      const sci = MUSCLE_SCIENCE[wk.muscleKey] || MUSCLE_SCIENCE.full;
+      if (!state.gymProgressByDay[d]) state.gymProgressByDay[d] = { setsDone: {}, finished: false };
+
+      if (!state.gymProgressByDay[d].finished) {
+        state.gymProgressByDay[d].finished = true;
+        state.xp += 35;
+      }
+      if (!state.completedTasks[d]) state.completedTasks[d] = {};
+      state.completedTasks[d]["gym_session"] = true;
+
+      saveState();
+      renderGymTab();
+      renderToday();
+      renderHome();
+      renderSanctuary();
+      showToast("🏆 Workout Complete! Daily Task & Bio-Gains Synced!");
+    }
+
+    function showPostWorkoutBioCard(wk, sci, totalReps) {
+      const box = document.getElementById("gymPostSummary");
+      box.style.display = "block";
+      document.getElementById("postTestoVal").textContent = sci.testoSurge;
+      document.getElementById("postBdnfVal").textContent = sci.bdnfSurge;
+      document.getElementById("postConfVal").textContent = sci.confScore;
+      document.getElementById("postVolumeVal").textContent = `${totalReps} Reps`;
+      document.getElementById("postCortisolVal").textContent = sci.cortisolDrop;
+      document.getElementById("postScientificNote").textContent =
+        `Exercise Endocrinology Report: Completing ${wk.name} (${totalReps} reps) triggered an acute ${sci.testoSurge} free testosterone & GH pulse, elevated BDNF neuroplasticity by ${sci.bdnfSurge}, and cleared stress cortisol by ${sci.cortisolDrop}.`;
+    }
+
+    function playBeep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.25);
+      } catch (e) {}
+    }
+
+    function updateRestClockUI() {
+      const m = String(Math.floor(restSeconds / 60)).padStart(2, "0");
+      const s = String(restSeconds % 60).padStart(2, "0");
+      document.getElementById("gymRestClock").textContent = `${m}:${s}`;
+    }
+
+    function startRestTimer(seconds) {
+      if (typeof seconds === "number") restSeconds = seconds;
+      clearInterval(restInterval);
+      updateRestClockUI();
+      document.getElementById("gymRestStartBtn").textContent = "⏸ Pause";
+      restInterval = setInterval(() => {
+        if (restSeconds > 0) {
+          restSeconds--;
+          updateRestClockUI();
+        } else {
+          clearInterval(restInterval);
+          restInterval = null;
+          document.getElementById("gymRestStartBtn").textContent = "▶ Start";
+          playBeep();
+          showToast("⏱️ Rest Complete — Next Set!");
+        }
+      }, 1000);
+    }
+
+    document.getElementById("gymRestStartBtn").addEventListener("click", () => {
+      if (restInterval) {
+        clearInterval(restInterval);
+        restInterval = null;
+        document.getElementById("gymRestStartBtn").textContent = "▶ Start";
+      } else {
+        if (restSeconds <= 0) restSeconds = 90;
+        startRestTimer();
+      }
+    });
+
+    document.getElementById("gymRestAddBtn").addEventListener("click", () => {
+      restSeconds += 15;
+      updateRestClockUI();
+    });
+
+    document.getElementById("gymRestResetBtn").addEventListener("click", () => {
+      clearInterval(restInterval);
+      restInterval = null;
+      restSeconds = 90;
+      updateRestClockUI();
+      document.getElementById("gymRestStartBtn").textContent = "▶ Start";
+    });
+
+    document.getElementById("finishGymSessionBtn").addEventListener("click", () => {
+      completeGymWorkoutAutomatically();
+    });
+
+    function renderWorkoutModalEditors() {
+      const count = parseInt(document.getElementById("wkSplitDaysCount").value, 10) || 4;
+      while (state.splitDays.length < count) {
+        state.splitDays.push({
+          name: `Workout Day ${state.splitDays.length + 1}`,
+          muscleKey: "full",
+          rawText: "Compound Movement - 4 x 10 (90s)\nAccessory Exercise - 3 x 12 (60s)"
+        });
+      }
+      const container = document.getElementById("wkDayEditorsContainer");
+      container.innerHTML = Array.from({ length: count }).map((_, idx) => {
+        const sp = state.splitDays[idx];
+        return `
+          <div class="card-soft" style="margin-bottom:10px;">
+            <div style="font-size:11.5px;font-weight:800;color:var(--accent);margin-bottom:6px;">
+              SPLIT DAY ${idx + 1} PLAN
+            </div>
+            <div class="field-group" style="margin-bottom:8px;">
+              <label>Day Muscle Focus (e.g. Legs & Core, Chest & Triceps)</label>
+              <input type="text" class="wk-day-name" data-idx="${idx}" value="${sp.name}" />
+            </div>
+            <div class="field-group" style="margin-bottom:0;">
+              <label>Exercises & Sets x Reps (1 per line, e.g. Squat - 4 x 10)</label>
+              <textarea rows="4" class="wk-day-raw" data-idx="${idx}">${sp.rawText}</textarea>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openWorkoutModal() {
+      document.getElementById("wkGymTime").value = state.gymTime || "06:30";
+      document.getElementById("wkSplitDaysCount").value = String(state.splitDaysCount || 4);
+      document.getElementById("wkWeekendRule").value = state.weekendRule || "weekend_rest";
+      renderWorkoutModalEditors();
+      document.getElementById("workoutModal").classList.add("open");
+    }
+
+    document.getElementById("openWorkoutBuilderBtn").addEventListener("click", openWorkoutModal);
+    document.getElementById("gymEditPlanBtn").addEventListener("click", openWorkoutModal);
+    document.getElementById("closeWorkoutModalBtn").addEventListener("click", () => {
+      document.getElementById("workoutModal").classList.remove("open");
+    });
+
+    document.getElementById("wkSplitDaysCount").addEventListener("change", renderWorkoutModalEditors);
+
+    document.getElementById("wkFileUpload").addEventListener("change", e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const text = ev.target.result || "";
+        const blocks = text.split(/\n(?=day\s*\d+)/i).map(b => b.trim()).filter(Boolean);
+        if (blocks.length >= 2) {
+          const cnt = Math.min(6, blocks.length);
+          document.getElementById("wkSplitDaysCount").value = String(cnt);
+          blocks.slice(0, cnt).forEach((blk, idx) => {
+            const lines = blk.split("\n").map(l => l.trim()).filter(Boolean);
+            const title = lines[0].replace(/^day\s*\d+\s*[:\-–]?\s*/i, "") || `Split Day ${idx + 1}`;
+            const body = lines.slice(1).join("\n") || lines[0];
+            state.splitDays[idx] = {
+              name: title,
+              muscleKey: detectMuscleKey(title, body),
+              rawText: body
+            };
+          });
+          renderWorkoutModalEditors();
+          showToast(`📄 Parsed ${cnt}-Day Split from File!`);
+        } else {
+          const firstArea = document.querySelector(".wk-day-raw[data-idx='0']");
+          if (firstArea) firstArea.value = text.trim();
+          showToast("📄 Loaded exercises into Split Day 1!");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById("saveWorkoutPlanBtn").addEventListener("click", () => {
+      state.gymTime = document.getElementById("wkGymTime").value || "06:30";
+      state.splitDaysCount = parseInt(document.getElementById("wkSplitDaysCount").value, 10) || 4;
+      state.weekendRule = document.getElementById("wkWeekendRule").value;
+
+      document.querySelectorAll(".wk-day-name").forEach(inp => {
+        const idx = parseInt(inp.dataset.idx, 10);
+        const raw = document.querySelector(`.wk-day-raw[data-idx="${idx}"]`).value;
+        const name = inp.value.trim() || `Split Day ${idx + 1}`;
+        state.splitDays[idx] = {
+          name,
+          muscleKey: detectMuscleKey(name, raw),
+          rawText: raw
+        };
+      });
+
+      saveState();
+      document.getElementById("workoutModal").classList.remove("open");
+      renderAll();
+      showToast(`🧬 Split Analyzed & Auto-Assigned Across ${getTotalTargetDays()} Days!`);
+    });
+
+    function renderMindRx() {
+      const totalTarget = getTotalTargetDays();
+      const targetDay = Math.max(1, Math.min(totalTarget, selectedRxDay));
+      const slider = document.getElementById("rxDaySlider");
+      slider.max = String(totalTarget);
+      slider.value = targetDay;
+
+      document.getElementById("rxFinalDayBtn").textContent = `Day ${totalTarget}`;
+      document.getElementById("rxSelectedDayLabel").textContent = `Day ${targetDay}`;
+
+      const m = calcNeuroMetrics(targetDay);
+      const wk = getWorkoutForDay(targetDay);
+      document.getElementById("rxTargetPctLabel").textContent = `${m.targetPct.toFixed(1)}% to Day ${totalTarget}`;
+      document.getElementById("rxD2").textContent = `${m.d2}%`;
+      document.getElementById("rxPfc").textContent = `${m.pfc}%`;
+      document.getElementById("rxLibido").textContent = `${m.libido}%`;
+
+      const stage = STAGES_DATA.find(s => targetDay >= s.range[0] && targetDay <= s.range[1]) || STAGES_DATA[3];
+      document.getElementById("rxForecastSummary").innerHTML =
+        `ඊයේ දක්වා සියලු පියවර සම්පූර්ණ කළ විට <strong>Day ${targetDay}</strong> වන විට ඔබ <strong>${stage.title}</strong> තුළ සිටින අතර, Auto-Assigned Workout එක: <strong>${wk.name}</strong> (${formatTime12h(state.gymTime)}). ස්වාභාවික Libido ශක්තිය <strong>${m.libido}%</strong> දක්වා වර්ධනය වී ඇත.`;
+
+      const pIdx = (targetDay - 1 + state.protocolIndex) % COUNSELOR_PROTOCOLS.length;
+      const proto = COUNSELOR_PROTOCOLS[pIdx];
+      document.getElementById("counselorSourceBadge").textContent = proto.source;
+      document.getElementById("counselorTitle").textContent = proto.title;
+      document.getElementById("counselorBody").textContent = proto.body;
+
+      document.getElementById("stagePreviewBadge").textContent = `Day ${state.currentDay} Active`;
+      const container = document.getElementById("stageCardsContainer");
+      container.innerHTML = STAGES_DATA.map((s, idx) => {
+        const endRange = idx === 3 ? totalTarget : s.range[1];
+        const titleText = idx === 3 ? `Stage 4: Synaptic Mastery & New Identity (Days 61–${totalTarget})` : s.title;
+        const isCurrent = state.currentDay >= s.range[0] && state.currentDay <= endRange;
+        return `
+          <div class="card-soft" style="margin-top:10px;border-color:${isCurrent ? "var(--accent)" : "var(--border)"};background:${isCurrent ? "var(--accent-soft)" : "var(--bg-card-soft)"};">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="font-size:14px;">${titleText}</strong>
+              ${isCurrent ? `<span class="badge badge-success">Active</span>` : ""}
+            </div>
+            <div style="font-size:11.5px;font-weight:700;color:var(--success);margin-bottom:4px;">
+              ❤️ Libido / Sex Feeling: ${s.libido}
+            </div>
+            <p class="si-note">${s.summary}</p>
+            <p class="si-note" style="margin-top:4px;color:var(--text);"><strong>Key Action:</strong> ${s.action}</p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function setHaltPrescription(key) {
+      document.getElementById("haltPrescription").innerHTML =
+        `<p class="si-note" style="color:var(--text);">${HALT_PRESCRIPTIONS[key]}</p>`;
+    }
+
+    function renderVault() {
+      const totalTarget = getTotalTargetDays();
+      const cleanDays = Math.max(state.cleanHistory.length, state.currentDay - 1);
+      const saved = cleanDays * state.dailyCost;
+      document.getElementById("vaultCurrentSaved").textContent = formatLKR(saved);
+      document.getElementById("vaultTargetLbl").textContent = `Day ${totalTarget} Total`;
+      document.getElementById("vaultDay90Proj").textContent = `Rs. ${Math.round((totalTarget * state.dailyCost) / 1000)}k`;
+      document.getElementById("vaultYearProj").textContent = `Rs. ${Math.round((365 * state.dailyCost) / 1000)}k`;
+
+      const list = document.getElementById("milestoneRewardsList");
+      list.innerHTML = state.rewards.map(r => {
+        const milestoneDay = r.day === 90 ? totalTarget : r.day;
+        const unlocked = state.currentDay >= milestoneDay;
+        const claimed = state.claimedRewards.includes(milestoneDay);
+        const cost = milestoneDay * state.dailyCost;
+        return `
+          <div class="card-soft" style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+            <div>
+              <div style="font-size:11px;font-weight:800;color:var(--accent);">DAY ${milestoneDay} MILESTONE • ${formatLKR(cost)}</div>
+              <div style="font-size:13.5px;font-weight:700;">${r.title}</div>
+            </div>
+            <button class="btn-outline" data-claim="${milestoneDay}" style="${claimed ? "border-color:var(--success);color:var(--success);" : ""}">
+              ${claimed ? "✓ Claimed" : unlocked ? "🎁 Claim" : "🔒 Locked"}
+            </button>
+          </div>
+        `;
+      }).join("");
+
+      list.querySelectorAll("[data-claim]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const rDay = parseInt(btn.dataset.claim, 10);
+          if (state.currentDay < rDay) {
+            showToast(`Reach Day ${rDay} to unlock this reward!`);
+            return;
+          }
+          if (!state.claimedRewards.includes(rDay)) {
+            state.claimedRewards.push(rDay);
+            state.xp += 100;
+            saveState();
+            renderVault();
+            renderHome();
+            showToast("🎉 Milestone Reward Claimed (+100 XP)!");
+          }
+        });
+      });
+    }
+
+    function switchTab(tab) {
+      if (!state.planStarted) {
+        renderStartGate();
+        return;
+      }
+      activeTab = tab;
+      document.querySelectorAll(".nav-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.tab === tab);
+      });
+      document.querySelectorAll(".tab-view").forEach(v => v.classList.remove("active"));
+      document.getElementById(`tab-${tab}`).classList.add("active");
+      applyTheme();
+    }
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+    });
+
+    document.querySelectorAll("#mindStateBar .mind-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.mentalState = btn.dataset.mstate;
+        saveState();
+        applyTheme();
+        renderSanctuary();
+        const label = state.mentalState === "low"
+          ? "🌫️ Simplified Low-Load UI Active"
+          : state.mentalState === "drive"
+          ? "⚡ Full Telemetry Drive UI Active"
+          : "⚖️ Balanced Focus UI Active";
+        showToast(label);
+      });
+    });
+
+    document.getElementById("simCleanModeBtn").addEventListener("click", () => {
+      simRelapseMode = false;
+      document.getElementById("simCleanModeBtn").classList.add("active-good");
+      document.getElementById("simRelapseModeBtn").classList.remove("active-bad");
+      document.getElementById("simCleanControls").style.display = "block";
+      updateTomorrowSimulator();
+    });
+
+    document.getElementById("simRelapseModeBtn").addEventListener("click", () => {
+      simRelapseMode = true;
+      document.getElementById("simRelapseModeBtn").classList.add("active-bad");
+      document.getElementById("simCleanModeBtn").classList.remove("active-good");
+      document.getElementById("simCleanControls").style.display = "none";
+      updateTomorrowSimulator();
+    });
+
+    document.querySelectorAll("#simChips .sim-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        chip.classList.toggle("selected");
+        updateTomorrowSimulator();
+      });
+    });
+
+    document.getElementById("pledgeBtn").addEventListener("click", () => {
+      if (state.pledgedDay !== state.currentDay) {
+        state.pledgedDay = state.currentDay;
+        state.xp += 50;
+        saveState();
+        renderToday();
+        renderHome();
+        showToast("🔒 24-Hour Clean Pledge Locked (+50 XP)!");
+      }
+    });
+
+    document.getElementById("completeDayBtn").addEventListener("click", () => {
+      processDayTransitionWithSilentWeights();
+    });
+
+    document.querySelectorAll("#rxQuickDays .q-day").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#rxQuickDays .q-day").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const totalTarget = getTotalTargetDays();
+        if (btn.dataset.final !== undefined) {
+          selectedRxDay = totalTarget;
+        } else if (btn.dataset.offset !== undefined) {
+          selectedRxDay = Math.min(totalTarget, state.currentDay + parseInt(btn.dataset.offset, 10));
+        } else {
+          selectedRxDay = Math.min(totalTarget, parseInt(btn.dataset.day, 10));
+        }
+        renderMindRx();
+      });
+    });
+
+    document.getElementById("rxDaySlider").addEventListener("input", e => {
+      selectedRxDay = parseInt(e.target.value, 10);
+      renderMindRx();
+    });
+
+    document.querySelectorAll("#haltButtons .halt-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#haltButtons .halt-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        setHaltPrescription(btn.dataset.halt);
+      });
+    });
+
+    document.getElementById("nextProtocolBtn").addEventListener("click", () => {
+      state.protocolIndex = (state.protocolIndex + 1) % COUNSELOR_PROTOCOLS.length;
+      saveState();
+      renderMindRx();
+    });
+
+    document.getElementById("completeProtocolBtn").addEventListener("click", () => {
+      const d = state.currentDay;
+      if (!state.completedTasks[d]) state.completedTasks[d] = {};
+      state.completedTasks[d]["mind_rx_done"] = true;
+      state.xp += 30;
+      saveState();
+      renderToday();
+      renderHome();
+      showToast("🧠 Counselor Protocol Practiced & Synced (+30 XP)!");
+    });
+
+    function updateSosDisplay() {
+      const mins = String(Math.floor(sosSeconds / 60)).padStart(2, "0");
+      const secs = String(sosSeconds % 60).padStart(2, "0");
+      document.getElementById("sosTimerDisplay").textContent = `${mins}:${secs}`;
+    }
+
+    document.getElementById("sosStartBtn").addEventListener("click", () => {
+      if (sosInterval) {
+        clearInterval(sosInterval);
+        sosInterval = null;
+        document.getElementById("sosStartBtn").textContent = "▶ Resume Timer";
+        return;
+      }
+      document.getElementById("sosStartBtn").textContent = "⏸ Pause Timer";
+      sosInterval = setInterval(() => {
+        if (sosSeconds > 0) {
+          sosSeconds--;
+          updateSosDisplay();
+        } else {
+          clearInterval(sosInterval);
+          sosInterval = null;
+          state.xp += 75;
+          saveState();
+          renderHome();
+          showToast("🛡️ Craving Wave Defeated! (+75 XP)");
+        }
+      }, 1000);
+    });
+
+    document.getElementById("sosResetBtn").addEventListener("click", () => {
+      clearInterval(sosInterval);
+      sosInterval = null;
+      sosSeconds = 20 * 60;
+      updateSosDisplay();
+      document.getElementById("sosStartBtn").textContent = "▶ Start 20-Min Timer";
+    });
+
+    document.getElementById("toggleBreathBtn").addEventListener("click", () => {
+      const orb = document.getElementById("breathOrb");
+      const btn = document.getElementById("toggleBreathBtn");
+      if (breathRunning) {
+        breathRunning = false;
+        clearTimeout(breathInterval);
+        orb.className = "breath-orb";
+        orb.innerHTML = "Tap Start<br/>4-7-8";
+        btn.textContent = "Start Breathing Guide";
+        return;
+      }
+      breathRunning = true;
+      btn.textContent = "Stop Breathing";
+      const cycle = () => {
+        if (!breathRunning) return;
+        orb.className = "breath-orb inhale";
+        orb.innerHTML = "Inhale<br/>4 sec";
+        breathInterval = setTimeout(() => {
+          if (!breathRunning) return;
+          orb.className = "breath-orb hold";
+          orb.innerHTML = "Hold<br/>7 sec";
+          breathInterval = setTimeout(() => {
+            if (!breathRunning) return;
+            orb.className = "breath-orb exhale";
+            orb.innerHTML = "Exhale<br/>8 sec";
+            breathInterval = setTimeout(cycle, 8000);
+          }, 7000);
+        }, 4000);
+      };
+      cycle();
+    });
+
+    document.querySelectorAll("#sosEmotionChips .halt-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#sosEmotionChips .halt-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("sosEmotionAdvice").innerHTML =
+          `<p class="si-note" style="color:var(--text);">${SOS_ADVICE[btn.dataset.em]}</p>`;
+      });
+    });
+
+    function openSettings() {
+      document.getElementById("setCurrentDay").value = state.currentDay;
+      document.getElementById("setDailyCost").value = state.dailyCost;
+      document.getElementById("setThemeMode").value = state.themeMode;
+      document.getElementById("settingsModal").classList.add("open");
+    }
+
+    document.getElementById("openSettingsBtn").addEventListener("click", openSettings);
+    document.getElementById("moodBadgeBtn").addEventListener("click", openSettings);
+    document.getElementById("closeSettingsBtn").addEventListener("click", () => {
+      document.getElementById("settingsModal").classList.remove("open");
+    });
+
+    document.getElementById("saveSettingsBtn").addEventListener("click", () => {
+      state.currentDay = Math.max(1, parseInt(document.getElementById("setCurrentDay").value, 10) || 1);
+      state.dailyCost = Math.max(100, parseInt(document.getElementById("setDailyCost").value, 10) || 2500);
+      state.themeMode = document.getElementById("setThemeMode").value;
+      selectedRxDay = state.currentDay;
+      saveState();
+      renderAll();
+      document.getElementById("settingsModal").classList.remove("open");
+      showToast("✅ Settings & Neuro-Colors Saved");
+    });
+
+    document.getElementById("exportBackupBtn").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `nuerorest90-backup-day${state.currentDay}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("⬇ Private Backup Downloaded!");
+    });
+
+    document.getElementById("importBackupInput").addEventListener("change", e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const imported = JSON.parse(ev.target.result);
+          state = { ...DEFAULT_STATE, ...imported };
+          selectedRxDay = state.currentDay;
+          saveState();
+          renderAll();
+          document.getElementById("settingsModal").classList.remove("open");
+          showToast("✅ Backup Restored Successfully!");
+        } catch (err) {
+          showToast("⚠️ Invalid Backup File");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    function renderAll() {
+      applyTheme();
+      if (!state.planStarted) {
+        renderStartGate();
+        return;
+      }
+      renderHome();
+      renderToday();
+      renderGymTab();
+      renderSanctuary();
+      setHaltPrescription("bored");
+      renderMindRx();
+      renderVault();
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
